@@ -1,8 +1,9 @@
 # Installation
 
-1. Edit `.bowerrc` to desired directory
-2. `bower install`
-3. Add the following to app settings:
+1. In `moj_django_test` run `npm install` to install Node.js dependencies (Gulp)
+2. Edit `.bowerrc` to desired directory
+3. `bower install`
+4. Add the following to app settings:
 	```py
 	project_root = abspath(root('..'))
 	bower_dir = json.load(open(join(project_root, '.bowerrc')))['directory']
@@ -22,10 +23,10 @@
 	abspath(root(project_root, bower_dir, 'mojular', 'layouts'))
 	```
 
-4. Add `{% extends 'django/base.html' %}` to the top of your template files
+5. Add `{% extends 'django/base.html' %}` to the top of your template files
 	Two template types are supported: `django/base.html` and `jinja/base.html`
 
-5. Assets are managed with Gulp (or Grunt). An example of Gulp configuration:
+6. Assets are managed with Gulp (or Grunt). An example of Gulp configuration:
 
 	```js
 	var paths = {
