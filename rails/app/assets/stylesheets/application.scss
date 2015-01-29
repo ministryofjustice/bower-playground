@@ -1,0 +1,16 @@
+// Assets Pipeline prefix
+$assets-prefix: '/assets/';
+
+// // Use to configure Susy grid
+// $grid-settings: (
+//   debug: (
+//     image: show,
+//   ),
+// );
+
+@import 'govuk';
+@import 'moj';
+
+img {
+  max-width: 100%;
+}

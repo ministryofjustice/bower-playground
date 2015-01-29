@@ -1,0 +1,19 @@
+{% extends 'django/base.html' %}
+{% load staticfiles %}
+
+{% block include_js %}
+  <script src="{% static 'javascripts/application.js' %}"></script>
+{% endblock %}
+
+{% block page_title %}Django{% endblock %}
+{% block stylesheets %}
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <h1>Test from Django</h1>
+  <p class="intro-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque, nulla corrupti vero soluta itaque nemo laborum quia cupiditate libero nisi illum provident, dolorem maxime praesentium impedit doloremque non numquam!</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum veritatis perspiciatis ad beatae enim velit voluptatibus! Accusantium molestiae recusandae numquam corporis iure, natus culpa repellat ut. Illum neque quasi, est.</p>
+
+  {# <img src="{% static 'images/opengraph-image.png' %}" alt=""> #}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'jinja/base.html' %}
+
+{% block include_js %}
+  <script src="{{ static('javascripts/application.js') }}"></script>
+{% endblock %}
+
+{% import 'macros/generic.html' as Generic %}
+
+{% block page_title %}Django{% endblock %}
+{% block stylesheets %}
+	<link href="{{ static('css/main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+	<h1>Test from Django</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque, nulla corrupti vero soluta itaque nemo laborum quia cupiditate libero nisi illum provident, dolorem maxime praesentium impedit doloremque non numquam!</p>
+
+	<img src="{{ static('images/opengraph-image.png') }}" alt="">
+
+  {{ Generic.test('from Macro') }}
+{% endblock %}

@@ -1,0 +1,113 @@
+---
+title: Middleman
+---
+
+- content_for :page_title, current_page.data.title
+- content_for :include_js, 'application'
+
+- content_for :global_subheader
+  .subheader-item.phase-banner
+    .phase-tag BETA
+    span.phase-banner-message This is a new service – your #{link_to 'feedback'} will help us to improve it.
+
+h1 An H1 heading
+
+p class="intro-paragraph"
+  ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque, nulla corrupti vero soluta itaque
+  ' #{link_to 'nemo laborum', '#aasda'} quia cupiditate libero nisi illum provident, dolorem maxime praesentium impedit doloremque non numquam!
+
+h2 An H2 heading
+
+p
+  | Ex nihil voluptaria nec, magna #{link_to 'signiferumque', '#asdrq'} sed at. Modus iusto id est.
+  | Sit liber blandit repudiare ad. Usu et nibh munere. Id aeque adolescens eam. In pro autem apeirian, eum id tritani perfecto dissentias.
+
+h3 An H3 heading
+
+p
+  | Cu stet erant nostro sed, cu mei veritus deserunt incorrupte. Ei graece hendrerit necessitatibus vix,
+  | no epicurei incorrupte pri. Ad usu quis albucius scribentur. An pro brute utinam. Malorum suscipit nominati ut cum.
+
+h4 An H4 heading
+
+p
+  | More than half of the UK believes that childcare should be shared equally between parents, a survey by the Department for Business,
+  | Innovation and Skills has found.
+p
+  | Over half of men (57%) thought that being more involved in the baby’s life would be a good thing for their whole family,
+  | and around a third felt it would strengthen their relationship with their partner.
+
+h5 An H5 heading
+
+p
+  | Just under a quarter of those surveyed believe that childcare should be the mother’s main responsibility,
+  | with more than half of men thinking that childcare should be shared equally, compared to 50% of women.
+
+table
+  thead
+    tr
+      th colspan="2" Dates and amounts
+  tbody
+    tr
+      td First 6 weeks
+      td £109.80 per week
+    tr
+      td Next 33 weeks
+      td £109.80 per week
+    tr
+      td Total estimated pay
+      td £4,282.20
+    tr
+      td Tell the mother’s employer
+      td 28 days before they want to start maternity pay
+
+table
+  thead
+    tr
+      th scope="col" Date
+      th class="numeric" scope="col" Paper form
+      th class="numeric" scope="col" Digital
+  tbody
+    tr
+      td 25 November to 1 December 2013
+      td class="numeric" 2,763
+      td class="numeric" 1,792
+    tr
+      td 2 to 8 December 2013
+      td class="numeric" 2,850
+      td class="numeric" 1,740
+    tr
+      td 9 to 15 December 2013
+      td class="numeric" 2,388
+      td class="numeric" 1,683
+
+hr
+
+.features
+  article.feature.m-full
+    .content
+      span.feature-image-holder
+        a href="/government/news/military-recognised-in-stonewalls-top-100"
+          img.feature-image alt="Army launches new recruitment campaign" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28902/s630_Army_launches_recruitment_campaign.jpg"
+      .feature-text
+        p.meta
+          time datetime="2015-01-16T15:21:29+00:00"
+            | 16 January 2015
+          | — News story
+        h2: a href="/government/news/army-launches-new-recruitment-campaign" Army launches new recruitment campaign
+        p.summary New campaign 'Normal Day' showcases the Army's role and relevance in changing times.
+
+  - 3.times
+    article.feature
+      .content
+        span.feature-image-holder
+          a.img href="/government/news/military-recognised-in-stonewalls-top-100"
+            img.feature-image alt="Military recognised in Stonewall’s top 100" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg"
+        .text
+          p.meta
+            time datetime="2015-01-14T13:35:26+00:00"
+              | 14 January 2015
+            | — News story
+          h2: a href="/government/news/military-recognised-in-stonewalls-top-100" Military recognised in Stonewall’s top 100
+          p.summary
+            | The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
