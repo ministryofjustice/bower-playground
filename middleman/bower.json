@@ -10,6 +10,6 @@
     "tests"
   ],
   "dependencies": {
-    "mojular": "file:///Users/tyom/Dropbox/Code/MoJ/moj-bower/mojular/.git"
+    "mojular": "ministryofjustice/mojular"
   }
 }
