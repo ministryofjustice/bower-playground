@@ -1,0 +1,168 @@
+---
+title: Forms
+nav_order: 6
+stylesheet: styles
+javascript: scripts/forms
+---
+
+markdown:
+  Keep forms as simple as possible – only ask what's needed to run your service.
+
+  ### Optional and mandatory fields
+
+  - only ask for the information you absolutely need
+  - if you do ask for optional information, mark the labels of optional fields with '(optional)'
+  - don't mark mandatory fields with asterisks
+
+  ### Labels
+
+  - all form fields should be given labels
+  - don't hide labels, unless the surrounding context makes them unnecessary
+  - labels should be aligned above their fields
+  - label text should be short, direct and in sentence case
+  - avoid colons at the end of labels
+  - labels should be associated with form fields using the `for` attribute
+
+= model
+  .form-group
+    label.form-label for="full-name-1" Full name
+    input#full-name-1.form-control type="text"
+
+markdown:
+  ### Form fields
+
+  Make field widths proportional to the input they take.
+
+  Ensure that users can enter the information they need at smaller screen sizes.
+
+  Snap form fields to 100% width at smaller screen sizes.
+
+  ### Fieldsets and legends
+
+  Use fieldsets to group related form controls. The first element inside a fieldset must be a `legend` element which describes the group.
+
+  ### Form focus states
+
+  All elements use the yellow focus style as a highlight, as either a fill or 3px outline.
+
+  Click on the label "Full name" or inside the form field to show the focus state.
+
+= model
+  .form-group
+    label.form-label for="full-name-2" Full name
+    input#full-name-2.form-control type="text"
+
+
+h3 Spacing between form elements
+p Ensure there is sufficient spacing between form elements.
+
+= model
+  .form-group
+    label.form-label for="first-name" First name
+    input#first-name.form-control type="text"
+
+  .form-group
+    label.form-label for="last-name" Last name
+    input#last-name.form-control type="text"
+
+
+markdown:
+  ### Hint text
+
+  - don't use placeholder text in form fields, as this will disappear once content is entered into the form field
+  - use hint text for supporting contextual help, this will always be shown
+  - hint text should sit above a form field
+  - ensure hint text can be read correctly by screen readers
+
+= model
+  .form-group
+    label.form-label for="ni-number" National Insurance number
+    .form-hint It'll be on your last payslip. For example, JH 21 90 0A.
+    input#ni-number-2.form-control type="text"
+
+markdown:
+  ### Radio buttons
+
+  - use these to let users choose a single option from a list
+  - for more than two options, radio buttons should be stacked
+  - radio buttons with large hit areas are easier to select with a mouse or touch devices
+
+= model 'radio-inline'
+  .form-group.inline
+    label.block-label for="radio-inline-1"
+      input#radio-inline-1 type="radio" name="radio-inline-group" value="Yes" Yes
+    label.block-label for="radio-inline-2"
+      input#radio-inline-2 type="radio" name="radio-inline-group" value="No" No
+
+= model 'radio'
+  label.block-label.selected for="radio-1"
+    input#radio-1 type="radio" name="radio-group" value="ni" Northern Ireland
+  label.block-label for="radio-2"
+    input#radio-2 type="radio" name="radio-group" value="isle-of-man-channel" Isle of Man or the Channel Islands
+  p.form-block or
+  label.block-label for="radio-3"
+    input#radio-3 type="radio" name="radio-group" value="british-abroad" I am a British citizen living abroad
+
+markdown:
+  ### Checkboxes
+
+  - use these to select either on/off toggles or multiple selections
+  - make it clear with words when users can select one or multiple options
+
+= model 'checkboxes'
+  fieldset
+    legend.form-label-bold Which types of waste do you transport regularly?
+    p Select all that apply
+    label.block-label.selected for="checkbox-1"
+      input#checkbox-1 type="checkbox" value="animals" Waste from animal carcasses
+    label.block-label for="checkbox-2"
+      input#checkbox-2 type="checkbox" value="mines" Waste from mines or quarries
+    label.block-label for="checkbox-3"
+      input#checkbox-3 type="checkbox" value="agriculture" Farm or agricultural waste
+
+p Large hit areas aren't always appropriate.
+
+= model 'inline-checkbox'
+  .form-group
+    label.form-label for="phone-number" Enter your telephone number
+    input#phone-number.form-control type="text"
+    label.form-checkbox for="phone-number-checkbox"
+      input#phone-number-checkbox type="checkbox" value="1" I need to be contacted using a text phone
+
+h3 Inset form elements
+p Insets can be used within forms to emphasise supporting information.
+p Click on "Yes" to see how this works.
+
+= model 'inset-radios'
+  fieldset
+    legend Do you know their National Insurance number?
+    .form-group.inline
+      label.block-label for="radio-inline-11"
+        input#radio-inline-11 type="radio" name="radio-inline-group" value="Yes" Yes
+      label.block-label for="radio-inline-12"
+        input#radio-inline-12 type="radio" name="radio-inline-group" value="No" No
+    .panel-indent data-controlled-by="radio-inline-group" data-control-value="Yes"
+      label.form-label for="ni-number-2" National Insurance number
+      input#ni-number-2.form-control type="text"
+
+p Click on "Citizen of a different country" to see how this works.
+
+= model 'inset-checkboxes'
+  fieldset
+    legend.form-label-bold What is your nationality?
+    p Select all options that are relevant to you.
+    .form-group
+      label.block-label.selected for="inset-checkbox-1"
+        input#inset-checkbox-1 type="checkbox" value="british" name="inset-checkbox"
+          | British (including English, Scottish, Welsh and Northern Irish)
+      label.block-label for="inset-checkbox-2"
+        input#inset-checkbox-2 type="checkbox" value="irish" name="inset-checkbox"
+          | Irish
+      label.block-label for="inset-checkbox-3"
+        input#inset-checkbox-3 type="checkbox" value="different" name="inset-checkbox"
+          | Citizen of a different country
+
+    .panel-indent data-controlled-by="inset-checkbox" data-control-value="different"
+      label.form-label for="ni-country-name-1" Country name
+      input#ni-number-2.form-control type="text" name="country-name"
+

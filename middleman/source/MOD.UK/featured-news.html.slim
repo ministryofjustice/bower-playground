@@ -1,0 +1,35 @@
+---
+title: Featured News
+stylesheet: styles
+nav_order: 31
+---
+
+= imodel '4-items'
+  .featured-news
+    article.feature
+      .content
+        span.feature-image-holder
+          a href="/government/news/military-recognised-in-stonewalls-top-100"
+            img.feature-image alt="Army launches new recruitment campaign" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28902/s630_Army_launches_recruitment_campaign.jpg"
+        .feature-text
+          p.meta
+            time datetime="2015-01-16T15:21:29+00:00"
+              | 16 January 2015
+            | — News story
+          h2: a href="/government/news/army-launches-new-recruitment-campaign" Army launches new recruitment campaign
+          p.summary New campaign 'Normal Day' showcases the Army's role and relevance in changing times.
+
+    - 3.times do |i|
+      article.feature.feature-small class="#{((i + 1) % 3) == 0 ? 'last' : nil}"
+        .content
+          span.feature-image-holder
+            a.img href="/government/news/military-recognised-in-stonewalls-top-100"
+              img.feature-image alt="Military recognised in Stonewall’s top 100" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg"
+          .feature-text
+            p.meta
+              time datetime="2015-01-14T13:35:26+00:00"
+                | 14 January 2015
+              | — News story
+            h2: a href="/government/news/military-recognised-in-stonewalls-top-100" Military recognised in Stonewall’s top 100
+            p.summary
+              | The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.

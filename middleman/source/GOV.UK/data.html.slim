@@ -1,0 +1,100 @@
+---
+title: Data
+stylesheets: styles, layout
+nav_order: 5
+---
+
+markdown:
+  Data is recommended as an alternative to using images.
+
+  - [Read more about GOV.UK data visualisation][1]
+  - [See an example of data on GOV.UK][2]
+  - [See an example of data on the GOV.UK Performance Platform][3]
+
+  [1]: https://www.gov.uk/service-manual/user-centered-design/data-visualisation.html
+  [2]: https://www.gov.uk/government/how-government-works#how-governement-is-run
+  [3]: https://www.gov.uk/performance/tax-disc
+
+  ### Data visualisation
+
+  For screen readers, ensure the data value appears first so it makes sense when read aloud.
+
+= model
+  .grid-row
+    .column-half
+      .data
+        .data-title 24
+        .data-subtitle Ministerial departments
+    .column-half
+      .data
+        .data-title 80px
+        .data-subtitle 16px
+
+= model
+  .grid-row
+    .column-half
+      .data.data-smaller
+        .data-title 56/154
+        .data-subtitle on GOV.UK
+    .column-half
+      .data.data-smaller
+        .data-title 48px
+        .data-subtitle 16px
+
+markdown:
+  ### Data in a table
+  Consider putting content into tables to make it easier to scan.
+
+  * when comparing rows of numbers, align numbers to the right in table cells
+  * use [tabular numbers][1] to allow numbers of the same width to be more easily compared
+
+  [1]: https://github.com/alphagov/govuk_frontend_toolkit#tabular-numbers
+
+  [Example of numeric table usage on GOV.UK](https://www.gov.uk/performance/carers-allowance/volumetrics)
+
+= model
+  table
+    thead
+      tr
+        th scope="col" Date
+        th class="numeric" scope="col" Paper form
+        th class="numeric" scope="col" Digital
+    tbody
+      tr
+        td 25 November to 1 December 2013
+        td class="numeric" 2,763
+        td class="numeric" 1,792
+      tr
+        td 2 to 8 December 2013
+        td class="numeric" 2,850
+        td class="numeric" 1,740
+      tr
+        td 9 to 15 December 2013
+        td class="numeric" 2,388
+        td class="numeric" 1,683
+
+markdown:
+  Not all content in tables should be right aligned.
+
+  [Example of table usage on GOV.UK][1]
+
+  [1]: https://www.gov.uk/pay-leave-for-parents/y/yes/2013-1-2/employee/employee/yes/yes/122.00-week/yes/yes/yes/122.00-week/yes
+
+= model
+  table
+    thead
+      tr
+        th colspan="2" Dates and amounts
+    tbody
+      tr
+        td First 6 weeks
+        td £109.80 per week
+      tr
+        td Next 33 weeks
+        td £109.80 per week
+      tr
+        td Total estimated pay
+        td £4,282.20
+      tr
+        td Tell the mother’s employer
+        td 28 days before they want to start maternity pay

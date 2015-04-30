@@ -17,8 +17,8 @@ class MoJSkeleton < ::Middleman::Extension
       end
     end
 
-    app.set :layouts_dir, File.join('..', mojular_dir, 'layouts') # relative to `source/` dir
-    app.set :layout, 'erb/base'
+    # app.set :layouts_dir, File.join('..', mojular_dir, 'layouts') # relative to `source/` dir
+    # app.set :layout, 'erb/base'
 
     app.ready do
       sprockets.append_path File.join(app.root, bowerrc_dir)

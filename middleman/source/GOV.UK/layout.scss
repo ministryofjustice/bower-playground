@@ -1,0 +1,19 @@
+@import 'bourbon';
+@import 'susy';
+@import 'breakpoint';
+
+@import 'govuk/$variables';
+@import 'govuk/%common';
+
+@import 'govuk/layout/grid';
+
+.grid-row {
+  margin-bottom: gutter() * 2;
+}
+
+[class|='column'] p {
+  min-height: 60px;
+  background-image: url(http://govuk-elements.herokuapp.com/public/images/examples/grid.png);
+  text-indent: -999em;
+  margin: 0;
+}

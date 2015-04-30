@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta charset='utf-8'
+    title = page_title
+    meta name='viewport' content='width=device-width'
+    = yield_content :stylesheets
+    - if current_resource.metadata.options.iframe
+      = include_stylesheets(current_page.data.stylesheets || current_page.data.stylesheet)
+
+  body class="#{yield_content(:body_class)}"
+    - id = current_resource.metadata.options.id
+    - current_model = current_resource.metadata.models[id]
+
+    = current_model.html
+
+    = javascript_include_tag  'iframe-js'
+    = yield_content :javascripts
+    - if current_resource.metadata.options.iframe
+      = include_javascripts(current_page.data.javascripts || current_page.data.javascript)
+    = yield_content :post_body

@@ -1,0 +1,40 @@
+---
+title: Buttons
+nav_order: 7
+stylesheet: styles
+---
+
+markdown:
+  Use buttons to move though a transaction, aim to use only one button per page.
+
+  ### Button text
+
+  Button text should be short and describe the action the button performs.
+
+= model
+  button.button Save and continue
+  button.button.button-secondary Save and continue
+
+p Launch your service with a Start now button.
+
+= model
+  button.button.button-get-started Start now
+
+p Align the primary action button to the left edge of your form, in the user's line of sight.
+
+= model
+  .form-group
+    label.form-label for="email-address-1" Email address
+    input#email-address-1.form-control type="email"
+  .form-group
+    p: button.button Save and continue
+    p: a href="#back" Back
+
+markdown:
+  ### Disabled buttons
+
+  Disabled buttons should be set at 50% opacity.
+
+= model
+  button.button(disabled) Primary button
+  button.button.button-secondary(disabled) Secondary button

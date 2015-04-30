@@ -1,0 +1,33 @@
+---
+title: Layout
+stylesheet: layout
+nav_order: 1
+---
+
+h3 Halves
+= imodel 'halves'
+  .container
+    .grid-row
+      .column-half: p Content
+      .column-half: p Content
+
+h3 Thirds
+= imodel 'thirds'
+  .container
+    .grid-row
+      .column-third: p Content
+      .column-third: p Content
+      .column-third: p Content
+
+    .grid-row
+      .column-two-thirds: p Content
+      .column-third: p Content
+
+h3 Quarters
+= imodel 'quarters'
+  .container
+    .grid-row
+      .column-quarter: p Content
+      .column-quarter: p Content
+      .column-quarter: p Content
+      .column-quarter: p Content
