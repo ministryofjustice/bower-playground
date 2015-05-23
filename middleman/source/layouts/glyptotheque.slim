@@ -17,6 +17,15 @@
           h1.glypto-title = current_page.data.title || getcurrent_page
         - elsif get_section_of_resource(current_page)
           h1.glypto-title = get_section_of_resource(current_page).title
+
+        - github_repo_url = 'https://github.com/ministryofjustice/bower-playground'
+
+        .glypto-source.fa.fa-github
+          a> href="#{github_repo_url}" target="_blank" Repo
+          ' •
+          a href="#{github_repo_url}/blob/sculptor-sprockets/middleman/#{source}/#{current_page.source_file.sub source_dir, ''}" target="_blank"
+            | Page
+
     .glypto-container = yield
 
   javascript:
