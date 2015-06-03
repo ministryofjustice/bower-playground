@@ -14,10 +14,9 @@ $susy: (
 
 @import 'govuk/fonts';
 @import 'govuk/typography';
-
-@import 'govuk/elements';
-
 @import 'govuk/utilities';
+
+@import 'mod/elements';
 
 
 .featured-news {
