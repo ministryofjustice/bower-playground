@@ -4,6 +4,9 @@
 - content_for :body_class,  "section-#{get_section_of_resource(current_page).slug}"
 
 - git_branch = `git rev-parse --abbrev-ref HEAD`.strip
+- github_repo_url = 'https://github.com/ministryofjustice/bower-playground'
+- github_repo_raw_url = 'https://raw.githubusercontent.com/ministryofjustice/bower-playground'
+- page_path = current_page.source_file.sub source_dir, ''
 
 = wrap_layout :layout do
   - if resource_tree('/').any?
@@ -20,13 +23,11 @@
         - elsif get_section_of_resource(current_page)
           h1.glypto-title = get_section_of_resource(current_page).title
 
-        - github_repo_url = 'https://github.com/ministryofjustice/bower-playground'
-
         .glypto-source.fa.fa-github
           a> href="#{github_repo_url}" target="_blank" Repo
           ' •
-          a href="#{github_repo_url}/blob/#{git_branch}/middleman/#{source}/#{current_page.source_file.sub source_dir, ''}" target="_blank"
-            | Page
+          a href="#{github_repo_url}/blob/#{git_branch}/middleman/#{source}#{page_path}" target="_blank"
+            | Page source
 
     .glypto-container = yield
 
