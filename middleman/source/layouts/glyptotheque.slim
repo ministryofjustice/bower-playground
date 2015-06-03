@@ -3,6 +3,8 @@
 - content_for :stylesheets, stylesheet_link_tag('glyptotheque')
 - content_for :body_class,  "section-#{get_section_of_resource(current_page).slug}"
 
+- git_branch = `git rev-parse --abbrev-ref HEAD`.strip
+
 = wrap_layout :layout do
   - if resource_tree('/').any?
     = partial 'glyptotheque/nav'
@@ -23,7 +25,7 @@
         .glypto-source.fa.fa-github
           a> href="#{github_repo_url}" target="_blank" Repo
           ' •
-          a href="#{github_repo_url}/blob/sculptor-sprockets/middleman/#{source}/#{current_page.source_file.sub source_dir, ''}" target="_blank"
+          a href="#{github_repo_url}/blob/#{git_branch}/middleman/#{source}/#{current_page.source_file.sub source_dir, ''}" target="_blank"
             | Page
 
     .glypto-container = yield
