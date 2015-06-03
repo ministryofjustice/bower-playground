@@ -1,16 +1,20 @@
 // Assets Pipeline prefix
 $assets-prefix: '/assets/';
 
-// // Use to configure Susy grid
-// $grid-settings: (
-//   debug: (
-//     image: show,
-//   ),
-// );
-
 @import 'govuk';
-@import 'moj';
 
-img {
-  max-width: 100%;
+$susy: (
+  gutters: 40px/80px,
+  gutter-position: after,
+);
+
+@import 'mod';
+
+.featured-news {
+  @include container(960px);
+}
+
+.feature {
+  margin-bottom: gutter(12);
+  font-family: nta, 'Helvetica Neue', Arial, sans-serif;
 }
