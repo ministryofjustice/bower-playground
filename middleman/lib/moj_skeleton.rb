@@ -27,23 +27,34 @@ class MoJSkeleton < ::Middleman::Extension
       sprockets.append_path moj_assets
       Dir.chdir(moj_assets) do
         Dir['**/*.{js,png,jpg}'].each do |asset|
+          # Rewrite sprockets logical paths to use assets dir defined in config
+          root_dir = asset.split(File::SEPARATOR).shift
           sprockets.import_asset(asset) do |logical_path|
-            logical_path
+            case logical_path.extname
+            when '.js'
+              logical_path.sub(root_dir, app.config.js_dir)
+            else
+              logical_path.sub(root_dir, app.config.images_dir)
+            end
           end
         end
       end
       sprockets.append_path govuk_assets
       Dir.chdir(govuk_assets) do
         Dir['**/*.{js,png,jpg,ico}'].each do |asset|
+          # Rewrite sprockets logical paths to use assets dir defined in config
           sprockets.import_asset(asset) do |logical_path|
-            logical_path
+            root_dir = asset.split(File::SEPARATOR).shift
+            case logical_path.extname
+            when '.js'
+              logical_path.sub(root_dir, app.config.js_dir)
+            else
+              logical_path.sub(root_dir, app.config.images_dir)
+            end
           end
         end
       end
     end
-  end
-
-  helpers do
   end
 end
 
