@@ -1,0 +1,69 @@
+---
+title: Typography
+stylesheet: styles/styles
+nav_order: 2
+---
+
+h3 Headings
+= model
+  h1 A 48px Bold heading
+  h3 A 36px Bold heading
+  h3 A 24px Bold heading
+  h4 A 19px Bold heading
+  h5 A 19px heading
+
+
+h3 Lead paragraph
+= model
+  p.lede A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+
+  p A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+
+
+h3 Body copy
+= model
+  p A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+
+  p
+    small A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+
+
+h3 Lists
+p List items start with a lowercase letter and have no full stop at the end.
+= model
+  ul
+    li here is a bulleted list
+    li vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+    li vestibulum id ligula porta felis euismod semper
+    li integer posuere erat a ante venenatis dapibus posuere velit aliquet
+
+  ol
+    li here is a numbered list
+    li vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+    li vestibulum id ligula porta felis euismod semper
+    li integer posuere erat a ante venenatis dapibus posuere velit aliquet
+
+
+h3 Inset text
+p Use bordered inset text to draw attention to important content on the page.
+= model
+  .panel-indent
+    p It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+
+
+markdown:
+  ### Hidden text (progressive disclosure)
+
+  Use this to make your page easier to scan, only showing contextual information when required.
+
+  Click on "Help with nationality" to see how this works.
+
+= model
+  details role="group"
+    summary role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="false"
+      span.summary Help with nationality
+    .panel-indent#details-content-0 aria-hidden="true"
+      markdown:
+        If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.
+
+        We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.

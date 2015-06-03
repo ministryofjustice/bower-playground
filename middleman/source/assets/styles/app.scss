@@ -1,0 +1,30 @@
+@import 'bourbon';
+@import 'susy';
+@import 'breakpoint';
+
+@import 'govuk/$variables';
+@import 'govuk/$colours';
+
+@import 'govuk/@functions';
+@import 'govuk/@mixins';
+
+@import 'govuk/fonts';
+@import 'govuk/typography';
+@import 'govuk/elements/forms';
+
+.section-gov-uk {
+  .glypto-header {
+    background: $govuk-blue;
+  }
+}
+
+.section-mod-uk {
+  .glypto-header {
+    background: $ministry-of-defence;
+    color: white;
+  }
+}
+
+.glypto-container {
+  @include container(960px);
+}

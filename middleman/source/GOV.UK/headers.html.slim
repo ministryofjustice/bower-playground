@@ -1,0 +1,34 @@
+---
+title: Headers
+stylesheet: styles/styles
+nav_order: 5
+---
+
+h3 Global header
+= model
+  .global-header
+    .container
+      .skip-link = link_to 'Skip to main content', '#content'
+      .header-branding
+        a.header-logo href="https://gov.uk" title="Go to the GOV.UK homepage"
+          span GOV.UK
+      .header-proposition
+        .proposition-name A government service
+      .header-bar
+
+h3 Global header with phase banner
+= model 'header-subheader'
+  .global-header
+    .container
+      .skip-link = link_to 'Skip to main content', '#content'
+      .header-branding
+        a.header-logo href="https://gov.uk" title="Go to the GOV.UK homepage"
+          span GOV.UK
+      .header-proposition
+        .proposition-name A government service
+      .header-bar
+
+  .global-subheader
+    .subheader-item.phase-banner
+      .phase-tag.phase-tag-beta BETA
+      span.phase-banner-message This is a new service – your #{link_to 'feedback'} will help us to improve it.

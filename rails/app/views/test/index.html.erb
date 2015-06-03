@@ -10,7 +10,7 @@
 
 <% content_for :global_subheader do %>
   <div class="subheader-item phase-banner">
-    <span class="phase-tag">BETA</span>
+    <span class="phase-tag phase-tag-beta">BETA</span>
     <span class="phase-banner-message">
       This is a new service – your <a href="#">feedback</a> will help us to improve it.
     </span>
@@ -105,8 +105,8 @@
 
 <hr>
 
-<div class="features">
-  <article class="feature m-full">
+<div class="featured-news">
+  <article class="feature">
     <div class="content">
       <span class="feature-image-holder">
         <a href="/government/news/military-recognised-in-stonewalls-top-100">
@@ -123,24 +123,24 @@
     </div>
   </article>
 
-  <% 3.times do %>
-  <article class="feature">
-    <div class="content">
-      <span class="feature-image-holder">
-        <a href="/government/news/military-recognised-in-stonewalls-top-100" class="img">
-          <img alt="Military recognised in Stonewall’s top 100" class="feature-image" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg">
-        </a>
-      </span>
-      <div class="text">
-        <p class="meta">
-          <time datetime="2015-01-14T13:35:26+00:00">14 January 2015</abbr> — News story
-        </p>
-        <h2>
-          <a href="/government/news/military-recognised-in-stonewalls-top-100">Military recognised in Stonewall’s top 100</a></h2>
-          <p class="summary">The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.</p>
+  <% 3.times do |i| %>
+    <article class="feature feature-small <%= ((i + 1) % 3) == 0 ? 'last' : nil %>">
+      <div class="content">
+        <span class="feature-image-holder">
+          <a href="/government/news/military-recognised-in-stonewalls-top-100" class="img">
+            <img alt="Military recognised in Stonewall’s top 100" class="feature-image" src="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg">
+          </a>
+        </span>
+        <div class="feature-text">
+          <p class="meta">
+            <time datetime="2015-01-14T13:35:26+00:00">14 January 2015</abbr> — News story
+          </p>
+          <h2>
+            <a href="/government/news/military-recognised-in-stonewalls-top-100">Military recognised in Stonewall’s top 100</a></h2>
+            <p class="summary">The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.</p>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
   <% end %>
 </div>
 

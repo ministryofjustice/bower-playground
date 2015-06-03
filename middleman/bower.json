@@ -1,15 +1,13 @@
 {
-  "name": "moj-bower-test-middleman",
+  "name": "sculptor",
   "version": "0.0.1",
-  "private": true,
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "private": "true",
   "dependencies": {
+    "angular": "~1.2.16",
+    "lodash": "*",
+    "mousetrap": "~1.4.6",
+    "store": "~2.1.6",
+    "iframe-resizer": "~2.8.6",
     "mojular": "ministryofjustice/mojular"
   }
 }
