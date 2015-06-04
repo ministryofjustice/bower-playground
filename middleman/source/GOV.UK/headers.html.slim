@@ -8,29 +8,9 @@ isolation_styles: >
 
 h3 Global header
 = model
-  .global-header
-    .container
-      .skip-link = link_to 'Skip to main content', '#content'
-      .header-branding
-        a.header-logo href="https://gov.uk" title="Go to the GOV.UK homepage"
-          span GOV.UK
-      .header-proposition
-        .proposition-name A government service
-      .header-bar
+  = partial 'partials/global_header', locals: { name: 'A Government Serice' }
 
 h3 Global header with phase banner
 = model 'header-subheader'
-  .global-header
-    .container
-      .skip-link = link_to 'Skip to main content', '#content'
-      .header-branding
-        a.header-logo href="https://gov.uk" title="Go to the GOV.UK homepage"
-          span GOV.UK
-      .header-proposition
-        .proposition-name A government service
-      .header-bar
-
-  .global-subheader.container
-    .subheader-item.phase-banner
-      .phase-tag.phase-tag-beta BETA
-      span.phase-banner-message This is a new service – your #{link_to 'feedback'} will help us to improve it.
+  = partial 'partials/global_header', locals: { name: 'A Government Serice' }
+  = partial 'partials/global_subheader', locals: { phase: 'alpha' }
