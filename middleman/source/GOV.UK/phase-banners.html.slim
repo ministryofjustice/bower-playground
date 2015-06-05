@@ -13,16 +13,10 @@ markdown:
   If your service is in beta or alpha, you must show the relevant banner in the header. It should sit directly underneath the black GOV.UK header and colour bar.
 
 = model
-  .global-subheader.container
-    .subheader-item.phase-banner
-      .phase-tag.phase-tag-alpha ALPHA
-      span.phase-banner-message This is a new service – your #{link_to 'feedback'} will help us to improve it.
+  = partial 'partials/global_subheader', locals: { phase: 'alpha' }
 
 = model
-  .global-subheader.container
-    .subheader-item.phase-banner
-      .phase-tag.phase-tag-beta BETA
-      span.phase-banner-message This is a new service – your #{link_to 'feedback'} will help us to improve it.
+  = partial 'partials/global_subheader', locals: { phase: 'beta' }
 
 markdown:
   ### Things on GOV.UK

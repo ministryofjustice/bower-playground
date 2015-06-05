@@ -1,11 +1,11 @@
-/* jshint unused: false */
+/* jshint node: true */
 
 'use strict';
 
 var paths = {
   src: 'moj_django_test/assets-src/',
   dest: 'moj_django_test/assets/',
-  styles: 'moj_django_test/assets-src/stylesheets/**/*.scss',
+  styles: 'moj_django_test/assets-src/stylesheets/',
   js: 'moj_django_test/assets-src/javascripts/**/*.js'
 };
 
@@ -30,15 +30,12 @@ gulp.task('sass', ['clean-css'], function() {
 
   var mojImportPaths = nconf.get('import_paths');
 
-  return gulp
-    .src(paths.src + 'stylesheets/**/*.scss')
-    .pipe(sass({
+  return sass(paths.styles, {
       lineNumbers: true,
-      style: 'compact',
       loadPath: govUkImportPaths.concat(mojImportPaths).map(function(i) {
         return bowerDir + '/' + i;
       })
-    }))
+    })
     .on('error', function (err) { console.log(err.message); })
     .pipe(gulp.dest(paths.dest + 'css/'));
 });

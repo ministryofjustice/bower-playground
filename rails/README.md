@@ -27,7 +27,7 @@
     layout 'slim/base'
 
     bowerrc_dir = JSON.parse(IO.read("#{Rails.root.to_s}/.bowerrc"))['directory']
-    prepend_view_path(File.expand_path("#{Rails.root.to_s}/#{bowerrc_dir}/mojular"))
+    prepend_view_path(File.expand_path("#{Rails.root.to_s}/#{bowerrc_dir}/mojular/templates"))
     ```
 
     Layouts are available in the following template engines: ERB, Haml, Slim.

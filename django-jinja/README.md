@@ -20,10 +20,11 @@
 	in `TEMPLATE_DIRS` add the following line:
 
 	```py
-	abspath(root(project_root, bower_dir, 'mojular', 'layouts'))
+	abspath(root(project_root, bower_dir, 'mojular', 'templates'))
 	```
 
-5. Add `{% extends 'django/base.html' %}` to the top of your template files
+5. Add `{% extends 'layouts/jinja/base.html' %}` to the top of your template files.
+
 	Two template types are supported: `django/base.html` and `jinja/base.html`
 
 6. Assets are managed with Gulp (or Grunt). An example of Gulp configuration:
@@ -32,7 +33,7 @@
 	var paths = {
 	  src: 'moj_django_test/assets-src/',
 	  dest: 'moj_django_test/assets/',
-	  styles: 'moj_django_test/assets-src/stylesheets/**/*.scss',
+	  styles: 'moj_django_test/assets-src/stylesheets/',
 	  js: 'moj_django_test/assets-src/javascripts/**/*.js'
 	};
 
@@ -57,23 +58,20 @@
 
 	  var mojImportPaths = nconf.get('import_paths');
 
-	  return gulp
-	    .src(paths.src + 'stylesheets/**/*.scss')
-	    .pipe(sass({
-	      lineNumbers: true,
-	      style: 'compact',
-	      loadPath: govUkImportPaths.concat(mojImportPaths).map(function(i) {
-	        return bowerDir + '/' + i;
-	      })
-	    }))
-	    .on('error', function (err) { console.log(err.message); })
-	    .pipe(gulp.dest(paths.dest + 'css/'));
+	  return sass(paths.styles, {
+		  lineNumbers: true,
+		  loadPath: govUkImportPaths.concat(mojImportPaths).map(function(i) {
+			return bowerDir + '/' + i;
+		  })
+		})
+		.on('error', function (err) { console.log(err.message); })
+		.pipe(gulp.dest(paths.dest + 'css/'));
 	});
 
 	gulp.task('js', ['clean-js'], function() {
 	  return gulp.src(paths.js)
-	    .pipe(concat('application.js'))
-	    .pipe(gulp.dest(paths.dest + 'javascripts'));
+		.pipe(concat('application.js'))
+		.pipe(gulp.dest(paths.dest + 'javascripts'));
 	});
 
 	gulp.task('clean-css', function() {
@@ -85,8 +83,8 @@
 	});
 
 	gulp.task('build', [
-	    'sass',
-	    'js'
+		'js',
+		'sass'
 	  ]
 	);
 
