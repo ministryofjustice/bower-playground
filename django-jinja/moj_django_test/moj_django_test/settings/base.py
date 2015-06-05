@@ -119,8 +119,7 @@ WSGI_APPLICATION = 'moj_django_test.wsgi.application'
 
 TEMPLATE_DIRS = (
     root('templates'),
-    abspath(root(project_root, bower_dir, 'mojular', 'layouts')),
-    abspath(root(project_root, bower_dir, 'mojular', 'templates', 'jinja')),
+    abspath(root(project_root, bower_dir, 'mojular', 'templates')),
 )
 
 INSTALLED_APPS = (
