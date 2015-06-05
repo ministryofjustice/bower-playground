@@ -96,7 +96,7 @@ GEM
     middleman-pry (0.0.4)
       middleman-core (~> 3.2)
       pry (~> 0.9)
-    middleman-sculptor (0.19)
+    middleman-sculptor (0.20)
       middleman-core (~> 3.3)
       nokogiri (>= 1.6, < 2.0)
       oj (~> 2.10.2)
@@ -187,5 +187,5 @@ DEPENDENCIES
   middleman-deploy (~> 1.0.0)
   middleman-livereload (~> 3.4.2)
   middleman-pry
-  middleman-sculptor (~> 0.19)
+  middleman-sculptor (~> 0.20)
   middleman-syntax
