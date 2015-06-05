@@ -3,7 +3,7 @@
 source 'http://rubygems.org'
 
 gem 'middleman', '~> 3.3.11'
-gem 'middleman-sculptor', '~> 0.19'
+gem 'middleman-sculptor', '~> 0.20'
 gem 'middleman-livereload', '~> 3.4.2'
 gem 'middleman-deploy', '~> 1.0.0'
 gem 'middleman-pry'
