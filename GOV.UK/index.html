@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title> GOV.UK Elements › Styleguide </title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/layout.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="../assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section-gov-uk"><script>
+  // If necessary insert a placeholder before the real menu is created
+  if(!store.get('glypto-menu-hidden')) {
+    var e = document.createElement('div');
+    e.id = 'glypto-nav-placeholder';
+    document.body.insertBefore(e, document.body.childNodes[0]);
+  }
+</script>
+<glypto-menu></glypto-menu>
+<script id="glyptotheque/menu.html" type="text/ng-template">
+  <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+    <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="../">Styleguide</a>
+    <div class="search">
+      <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+    </div>
+    <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+  </nav>
+</script>
+<script id="glyptotheque/menu-tree.html" type="text/ng-template">
+  <ul>
+    <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+  </ul>
+</script>
+<script id="glyptotheque/menu-node.html" type="text/ng-template">
+  <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+        {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+  </li>
+</script><main class="glyptotheque">
+  <header class="glypto-header">
+    <div class="glypto-container">
+      <div class="glypto-breadcrumbs">
+        <a href="../">Styleguide</a>
+      </div>
+      <h1 class="glypto-title">
+        GOV.UK Elements
+      </h1>
+      <div class="glypto-source fa fa-github">
+        <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/GOV.UK/index.html.slim" target="_blank">Page source</a>
+      </div>
+    </div>
+  </header>
+  <div class="glypto-container"><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="layout.html">Layout</a>
+  </h2><h3>
+  Halves
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-halves" scrolling="no" src="layout-halves-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-halves-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Thirds
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-thirds" scrolling="no" src="layout-thirds-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-thirds-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-two-thirds"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-two-thirds</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Quarters
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-quarters" scrolling="no" src="layout-quarters-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-quarters-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="typography.html">Typography</a>
+  </h2><h3>
+  Headings
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <h1>
+        A 48px Bold heading
+      </h1>
+      <h3>
+        A 36px Bold heading
+      </h3>
+      <h3>
+        A 24px Bold heading
+      </h3>
+      <h4>
+        A 19px Bold heading
+      </h4>
+      <h5>
+        A 19px heading
+      </h5>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;h1&gt;</span>
+  A 48px Bold heading
+<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h3&gt;</span>
+  A 36px Bold heading
+<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h3&gt;</span>
+  A 24px Bold heading
+<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>
+  A 19px Bold heading
+<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>
+  A 19px heading
+<span class="nt">&lt;/h5&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">h1</span> <span class="_text" title="">
+              A 48px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h3</span> <span class="_text" title="">
+              A 36px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h3</span> <span class="_text" title="">
+              A 24px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h4</span> <span class="_text" title="">
+              A 19px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h5</span> <span class="_text" title="">
+              A 19px heading
+            </span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Lead paragraph
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <p class="lede">
+        A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+      <p>
+        A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lede"</span><span class="nt">&gt;</span>
+  A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">p</span><span class="_classes"><span class="_class">.lede</span></span> <span class="_text" title="A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">p</span> <span class="_text" title="A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Body copy
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <p>
+        A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+      <p>
+        <small>A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.</small>
+      </p>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;p&gt;</span>
+  A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;small&gt;</span>A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/p&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">p</span> <span class="_text" title="A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">p</span><div class="_element">
+            <span class="_name">small</span> <span class="_text" title="A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.</span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Lists
+</h3>
+<p>
+  List items start with a lowercase letter and have no full stop at the end.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <ul>
+        <li>
+          here is a bulleted list
+        </li>
+        <li>
+          vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+        </li>
+        <li>
+          vestibulum id ligula porta felis euismod semper
+        </li>
+        <li>
+          integer posuere erat a ante venenatis dapibus posuere velit aliquet
+        </li>
+      </ul>
+      <ol>
+        <li>
+          here is a numbered list
+        </li>
+        <li>
+          vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+        </li>
+        <li>
+          vestibulum id ligula porta felis euismod semper
+        </li>
+        <li>
+          integer posuere erat a ante venenatis dapibus posuere velit aliquet
+        </li>
+      </ol>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    here is a bulleted list
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vestibulum id ligula porta felis euismod semper
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    integer posuere erat a ante venenatis dapibus posuere velit aliquet
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    here is a numbered list
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vestibulum id ligula porta felis euismod semper
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    integer posuere erat a ante venenatis dapibus posuere velit aliquet
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">ul</span><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="here is a bulleted list">
+                here is a bulleted list
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor">
+                vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vestibulum id ligula porta felis euismod semper">
+                vestibulum id ligula porta felis euismod semper
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="integer posuere erat a ante venenatis dapibus posuere velit aliquet">
+                integer posuere erat a ante venenatis dapibus posuere velit aliquet
+              </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">ol</span><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="here is a numbered list">
+                here is a numbered list
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor">
+                vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vestibulum id ligula porta felis euismod semper">
+                vestibulum id ligula porta felis euismod semper
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="integer posuere erat a ante venenatis dapibus posuere velit aliquet">
+                integer posuere erat a ante venenatis dapibus posuere velit aliquet
+              </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Inset text
+</h3>
+<p>
+  Use bordered inset text to draw attention to important content on the page.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="panel-indent">
+        <p>
+          It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+        </p>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-indent"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.panel-indent</span></span><div class="_element">
+            <span class="_name">p</span> <span class="_text" title="It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.">
+                It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+              </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="hidden-text-progressive-disclosure">Hidden text (progressive disclosure)</h3>
+
+<p>Use this to make your page easier to scan, only showing contextual information when required.</p>
+
+<p>Click on "Help with nationality" to see how this works.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <details role="group"><summary aria-controls="details-content-0" aria-expanded="false" role="button" tabindex="0"><span class="summary">Help with nationality</span></summary>
+        <div aria-hidden="true" class="panel-indent" id="details-content-0">
+          <p>If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.</p>
+          
+          <p>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.</p>
+          
+        </div>
+      </details>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;details</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;&lt;summary</span> <span class="na">aria-controls=</span><span class="s">"details-content-0"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">tabindex=</span><span class="s">"0"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>Help with nationality<span class="nt">&lt;/span&gt;&lt;/summary&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"panel-indent"</span> <span class="na">id=</span><span class="s">"details-content-0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.<span class="nt">&lt;/p&gt;</span>
+    
+    <span class="nt">&lt;p&gt;</span>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.<span class="nt">&lt;/p&gt;</span>
+    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/details&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">details</span> <span class="_attributes"> <span class="_attr"><span class="_name">role</span>="<span class="_value" title="">group</span>"</span> </span> <div class="_element">
+            <span class="_name">summary</span> <span class="_attributes"> <span class="_attr"><span class="_name">aria-controls</span>="<span class="_value" title="">details-content-0</span>"</span>  <span class="_attr"><span class="_name">aria-expanded</span>="<span class="_value" title="">false</span>"</span>  <span class="_attr"><span class="_name">role</span>="<span class="_value" title="">button</span>"</span>  <span class="_attr"><span class="_name">tabindex</span>="<span class="_value" title="">0</span>"</span> </span> <div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="">Help with nationality</span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_id">#details-content-0</span><span class="_classes"><span class="_class">.panel-indent</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">aria-hidden</span>="<span class="_value" title="">true</span>"</span> </span> <div class="_element">
+              <span class="_name">p</span> <span class="_text" title="If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.">If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.</span> 
+            </div><div class="_element">
+              <span class="_name">p</span> <span class="_text" title="We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.">We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="data.html">Data</a>
+  </h2><p>Data is recommended as an alternative to using images.</p>
+
+<ul>
+  <li><a href="https://www.gov.uk/service-manual/user-centered-design/data-visualisation.html">Read more about GOV.UK data visualisation</a></li>
+  <li><a href="https://www.gov.uk/government/how-government-works#how-governement-is-run">See an example of data on GOV.UK</a></li>
+  <li><a href="https://www.gov.uk/performance/tax-disc">See an example of data on the GOV.UK Performance Platform</a></li>
+</ul>
+
+<h3 id="data-visualisation">Data visualisation</h3>
+
+<p>For screen readers, ensure the data value appears first so it makes sense when read aloud.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="grid-row">
+        <div class="column-half">
+          <div class="data">
+            <div class="data-title">
+              24
+            </div>
+            <div class="data-subtitle">
+              Ministerial departments
+            </div>
+          </div>
+        </div>
+        <div class="column-half">
+          <div class="data">
+            <div class="data-title">
+              80px
+            </div>
+            <div class="data-subtitle">
+              16px
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        24
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        Ministerial departments
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        80px
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        16px
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    24
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="Ministerial departments">
+                    Ministerial departments
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    80px
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    16px
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="grid-row">
+        <div class="column-half">
+          <div class="data data-smaller">
+            <div class="data-title">
+              56/154
+            </div>
+            <div class="data-subtitle">
+              on GOV.UK
+            </div>
+          </div>
+        </div>
+        <div class="column-half">
+          <div class="data data-smaller">
+            <div class="data-title">
+              48px
+            </div>
+            <div class="data-subtitle">
+              16px
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data data-smaller"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        56/154
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        on GOV.UK
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data data-smaller"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        48px
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        16px
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span><span class="_class">.data-smaller</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    56/154
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    on GOV.UK
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span><span class="_class">.data-smaller</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    48px
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    16px
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="data-in-a-table">Data in a table</h3>
+<p>Consider putting content into tables to make it easier to scan.</p>
+
+<ul>
+  <li>when comparing rows of numbers, align numbers to the right in table cells</li>
+  <li>use <a href="https://github.com/alphagov/govuk_frontend_toolkit#tabular-numbers">tabular numbers</a> to allow numbers of the same width to be more easily compared</li>
+</ul>
+
+<p><a href="https://www.gov.uk/performance/carers-allowance/volumetrics">Example of numeric table usage on GOV.UK</a></p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">
+              Date
+            </th>
+            <th class="numeric" scope="col">
+              Paper form
+            </th>
+            <th class="numeric" scope="col">
+              Digital
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              25 November to 1 December 2013
+            </td>
+            <td class="numeric">
+              2,763
+            </td>
+            <td class="numeric">
+              1,792
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2 to 8 December 2013
+            </td>
+            <td class="numeric">
+              2,850
+            </td>
+            <td class="numeric">
+              1,740
+            </td>
+          </tr>
+          <tr>
+            <td>
+              9 to 15 December 2013
+            </td>
+            <td class="numeric">
+              2,388
+            </td>
+            <td class="numeric">
+              1,683
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Date
+      <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"numeric"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Paper form
+      <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"numeric"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Digital
+      <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        25 November to 1 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,763
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,792
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        2 to 8 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,850
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,740
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        9 to 15 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,388
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,683
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">table</span><div class="_element">
+            <span class="_name">thead</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">th</span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Date
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">th</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Paper form
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">th</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Digital
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">tbody</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="25 November to 1 December 2013">
+                    25 November to 1 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,763
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,792
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="2 to 8 December 2013">
+                    2 to 8 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,850
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,740
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="9 to 15 December 2013">
+                    9 to 15 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,388
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,683
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><p>Not all content in tables should be right aligned.</p>
+
+<p><a href="https://www.gov.uk/pay-leave-for-parents/y/yes/2013-1-2/employee/employee/yes/yes/122.00-week/yes/yes/yes/122.00-week/yes">Example of table usage on GOV.UK</a></p>
+
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              Dates and amounts
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              First 6 weeks
+            </td>
+            <td>
+              £109.80 per week
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Next 33 weeks
+            </td>
+            <td>
+              £109.80 per week
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Total estimated pay
+            </td>
+            <td>
+              £4,282.20
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Tell the mother’s employer
+            </td>
+            <td>
+              28 days before they want to start maternity pay
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+        Dates and amounts
+      <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        First 6 weeks
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £109.80 per week
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Next 33 weeks
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £109.80 per week
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Total estimated pay
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £4,282.20
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Tell the mother’s employer
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        28 days before they want to start maternity pay
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">table</span><div class="_element">
+            <span class="_name">thead</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">th</span> <span class="_attributes"> <span class="_attr"><span class="_name">colspan</span>="<span class="_value" title="">2</span>"</span> </span>  <span class="_text" title="Dates and amounts">
+                    Dates and amounts
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">tbody</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="First 6 weeks">
+                    First 6 weeks
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="£109.80 per week">
+                    £109.80 per week
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Next 33 weeks">
+                    Next 33 weeks
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="£109.80 per week">
+                    £109.80 per week
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Total estimated pay">
+                    Total estimated pay
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="">
+                    £4,282.20
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Tell the mother’s employer">
+                    Tell the mother’s employer
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="28 days before they want to start maternity pay">
+                    28 days before they want to start maternity pay
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="headers.html">Headers</a>
+  </h2><h3>
+  Global header
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="global-header">
+        <div class="container">
+          <div class="skip-link">
+            <a href="#content">Skip to main content</a>
+          </div>
+          <div class="header-branding">
+            <a href="https://gov.uk" title="Go to the GOV.UK homepage" class="header-logo">
+              <span>GOV.UK</span>
+            </a>
+          </div>
+            <div class="header-proposition">
+              <div class="proposition-name">A Government Serice</div>
+            </div>
+          <div class="header-bar"></div>
+        </div>
+      </div>
+      
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"global-header"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"skip-link"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#content"</span><span class="nt">&gt;</span>Skip to main content<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-branding"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://gov.uk"</span> <span class="na">title=</span><span class="s">"Go to the GOV.UK homepage"</span> <span class="na">class=</span><span class="s">"header-logo"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span&gt;</span>GOV.UK<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-proposition"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"proposition-name"</span><span class="nt">&gt;</span>A Government Serice<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-bar"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.global-header</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.skip-link</span></span><div class="_element">
+                <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">#content</span>"</span> </span>  <span class="_text" title="">Skip to main content</span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-branding</span></span><div class="_element">
+                <span class="_name">a</span><span class="_classes"><span class="_class">.header-logo</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">https://gov.uk</span>"</span>  <span class="_attr"><span class="_name">title</span>="<span class="_value" title="">Go to the GOV.UK homepage</span>"</span> </span> <div class="_element">
+                  <span class="_name">span</span> <span class="_text" title="">GOV.UK</span> 
+                </div>
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-proposition</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.proposition-name</span></span> <span class="_text" title="">A Government Serice</span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-bar</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Global header with phase banner
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="global-header">
+        <div class="container">
+          <div class="skip-link">
+            <a href="#content">Skip to main content</a>
+          </div>
+          <div class="header-branding">
+            <a href="https://gov.uk" title="Go to the GOV.UK homepage" class="header-logo">
+              <span>GOV.UK</span>
+            </a>
+          </div>
+            <div class="header-proposition">
+              <div class="proposition-name">A Government Serice</div>
+            </div>
+          <div class="header-bar"></div>
+        </div>
+      </div>
+      
+      <div class="global-subheader container">
+        <div class="subheader-item phase-banner">
+            <span class="phase-tag phase-tag-alpha">
+              ALPHA
+            </span>
+          <span class="phase-banner-message">
+            This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.
+          </span>
+        </div>
+      </div>
+      
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="headers-header-subheader-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"global-header"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"skip-link"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#content"</span><span class="nt">&gt;</span>Skip to main content<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-branding"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://gov.uk"</span> <span class="na">title=</span><span class="s">"Go to the GOV.UK homepage"</span> <span class="na">class=</span><span class="s">"header-logo"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span&gt;</span>GOV.UK<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-proposition"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"proposition-name"</span><span class="nt">&gt;</span>A Government Serice<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-bar"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"global-subheader container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"subheader-item phase-banner"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-tag phase-tag-alpha"</span><span class="nt">&gt;</span>
+        ALPHA
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-banner-message"</span><span class="nt">&gt;</span>
+      This is a new service – your <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/feedback"</span><span class="nt">&gt;</span>feedback<span class="nt">&lt;/a&gt;</span> will help us to improve it.
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.global-header</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.skip-link</span></span><div class="_element">
+                <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">#content</span>"</span> </span>  <span class="_text" title="">Skip to main content</span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-branding</span></span><div class="_element">
+                <span class="_name">a</span><span class="_classes"><span class="_class">.header-logo</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">https://gov.uk</span>"</span>  <span class="_attr"><span class="_name">title</span>="<span class="_value" title="">Go to the GOV.UK homepage</span>"</span> </span> <div class="_element">
+                  <span class="_name">span</span> <span class="_text" title="">GOV.UK</span> 
+                </div>
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-proposition</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.proposition-name</span></span> <span class="_text" title="">A Government Serice</span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.header-bar</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.global-subheader</span><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.subheader-item</span><span class="_class">.phase-banner</span></span><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-tag</span><span class="_class">.phase-tag-alpha</span></span> <span class="_text" title="">
+                  ALPHA
+                </span> 
+            </div><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-banner-message</span></span> <span class="_text" title="This is a new service – your  will help us to improve it.">
+                  This is a new service – your  will help us to improve it.
+                </span> <div class="_element">
+                <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">/feedback</span>"</span> </span>  <span class="_text" title="">feedback</span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="forms.html">Forms</a>
+  </h2><p>Keep forms as simple as possible – only ask what's needed to run your service.</p>
+
+<h3 id="optional-and-mandatory-fields">Optional and mandatory fields</h3>
+
+<ul>
+  <li>only ask for the information you absolutely need</li>
+  <li>if you do ask for optional information, mark the labels of optional fields with '(optional)'</li>
+  <li>don't mark mandatory fields with asterisks</li>
+</ul>
+
+<h3 id="labels">Labels</h3>
+
+<ul>
+  <li>all form fields should be given labels</li>
+  <li>don't hide labels, unless the surrounding context makes them unnecessary</li>
+  <li>labels should be aligned above their fields</li>
+  <li>label text should be short, direct and in sentence case</li>
+  <li>avoid colons at the end of labels</li>
+  <li>labels should be associated with form fields using the <code>for</code> attribute</li>
+</ul>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="full-name-1">Full name</label><input class="form-control" id="full-name-1" type="text" />
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"full-name-1"</span><span class="nt">&gt;</span>Full name<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"full-name-1"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">full-name-1</span>"</span> </span>  <span class="_text" title="">Full name</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#full-name-1</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="form-fields">Form fields</h3>
+
+<p>Make field widths proportional to the input they take.</p>
+
+<p>Ensure that users can enter the information they need at smaller screen sizes.</p>
+
+<p>Snap form fields to 100% width at smaller screen sizes.</p>
+
+<h3 id="fieldsets-and-legends">Fieldsets and legends</h3>
+
+<p>Use fieldsets to group related form controls. The first element inside a fieldset must be a <code>legend</code> element which describes the group.</p>
+
+<h3 id="form-focus-states">Form focus states</h3>
+
+<p>All elements use the yellow focus style as a highlight, as either a fill or 3px outline.</p>
+
+<p>Click on the label "Full name" or inside the form field to show the focus state.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="full-name-2">Full name</label><input class="form-control" id="full-name-2" type="text" />
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"full-name-2"</span><span class="nt">&gt;</span>Full name<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"full-name-2"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">full-name-2</span>"</span> </span>  <span class="_text" title="">Full name</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#full-name-2</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Spacing between form elements
+</h3>
+<p>
+  Ensure there is sufficient spacing between form elements.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="first-name">First name</label><input class="form-control" id="first-name" type="text" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="last-name">Last name</label><input class="form-control" id="last-name" type="text" />
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"first-name"</span><span class="nt">&gt;</span>First name<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"first-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"last-name"</span><span class="nt">&gt;</span>Last name<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"last-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">first-name</span>"</span> </span>  <span class="_text" title="">First name</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#first-name</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">last-name</span>"</span> </span>  <span class="_text" title="">Last name</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#last-name</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="hint-text">Hint text</h3>
+
+<ul>
+  <li>don't use placeholder text in form fields, as this will disappear once content is entered into the form field</li>
+  <li>use hint text for supporting contextual help, this will always be shown</li>
+  <li>hint text should sit above a form field</li>
+  <li>ensure hint text can be read correctly by screen readers</li>
+</ul>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="ni-number">National Insurance number</label>
+        <div class="form-hint">
+          It'll be on your last payslip. For example, JH 21 90 0A.
+        </div>
+        <input class="form-control" id="ni-number-2" type="text" />
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"ni-number"</span><span class="nt">&gt;</span>National Insurance number<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-hint"</span><span class="nt">&gt;</span>
+    It'll be on your last payslip. For example, JH 21 90 0A.
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"ni-number-2"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">ni-number</span>"</span> </span>  <span class="_text" title="">National Insurance number</span> 
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.form-hint</span></span> <span class="_text" title="It'll be on your last payslip. For example, JH 21 90 0A.">
+                It'll be on your last payslip. For example, JH 21 90 0A.
+              </span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#ni-number-2</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="radio-buttons">Radio buttons</h3>
+
+<ul>
+  <li>use these to let users choose a single option from a list</li>
+  <li>for more than two options, radio buttons should be stacked</li>
+  <li>radio buttons with large hit areas are easier to select with a mouse or touch devices</li>
+</ul>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group inline">
+        <label class="block-label" for="radio-inline-1"><input id="radio-inline-1" name="radio-inline-group" type="radio" value="Yes">Yes</input></label><label class="block-label" for="radio-inline-2"><input id="radio-inline-2" name="radio-inline-group" type="radio" value="No">No</input></label>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-radio-inline-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group inline"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-inline-1"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-inline-1"</span> <span class="na">name=</span><span class="s">"radio-inline-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"Yes"</span><span class="nt">&gt;</span>Yes<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-inline-2"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-inline-2"</span> <span class="na">name=</span><span class="s">"radio-inline-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"No"</span><span class="nt">&gt;</span>No<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span><span class="_class">.inline</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-inline-1</span>"</span> </span>  <span class="_text" title="">Yes</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#radio-inline-1</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-inline-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">Yes</span>"</span> </span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-inline-2</span>"</span> </span>  <span class="_text" title="">No</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#radio-inline-2</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-inline-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">No</span>"</span> </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <label class="block-label selected" for="radio-1"><input id="radio-1" name="radio-group" type="radio" value="ni">Northern Ireland</input></label><label class="block-label" for="radio-2"><input id="radio-2" name="radio-group" type="radio" value="isle-of-man-channel">Isle of Man or the Channel Islands</input></label>
+      <p class="form-block">
+        or
+      </p>
+      <label class="block-label" for="radio-3"><input id="radio-3" name="radio-group" type="radio" value="british-abroad">I am a British citizen living abroad</input></label>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-radio-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label selected"</span> <span class="na">for=</span><span class="s">"radio-1"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-1"</span> <span class="na">name=</span><span class="s">"radio-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"ni"</span><span class="nt">&gt;</span>Northern Ireland<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-2"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-2"</span> <span class="na">name=</span><span class="s">"radio-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"isle-of-man-channel"</span><span class="nt">&gt;</span>Isle of Man or the Channel Islands<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"form-block"</span><span class="nt">&gt;</span>
+  or
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-3"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-3"</span> <span class="na">name=</span><span class="s">"radio-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"british-abroad"</span><span class="nt">&gt;</span>I am a British citizen living abroad<span class="nt">&lt;/input&gt;&lt;/label&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span><span class="_class">.selected</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-1</span>"</span> </span>  <span class="_text" title="">Northern Ireland</span> <div class="_element">
+            <span class="_name">input</span><span class="_id">#radio-1</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">ni</span>"</span> </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-2</span>"</span> </span>  <span class="_text" title="Isle of Man or the Channel Islands">Isle of Man or the Channel Islands</span> <div class="_element">
+            <span class="_name">input</span><span class="_id">#radio-2</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">isle-of-man-channel</span>"</span> </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">p</span><span class="_classes"><span class="_class">.form-block</span></span> <span class="_text" title="">
+              or
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-3</span>"</span> </span>  <span class="_text" title="I am a British citizen living abroad">I am a British citizen living abroad</span> <div class="_element">
+            <span class="_name">input</span><span class="_id">#radio-3</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">british-abroad</span>"</span> </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="checkboxes">Checkboxes</h3>
+
+<ul>
+  <li>use these to select either on/off toggles or multiple selections</li>
+  <li>make it clear with words when users can select one or multiple options</li>
+</ul>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <fieldset>
+        <legend class="form-label-bold">Which types of waste do you transport regularly?</legend>
+        <p>
+          Select all that apply
+        </p>
+        <label class="block-label selected" for="checkbox-1"><input id="checkbox-1" type="checkbox" value="animals">Waste from animal carcasses</input></label><label class="block-label" for="checkbox-2"><input id="checkbox-2" type="checkbox" value="mines">Waste from mines or quarries</input></label><label class="block-label" for="checkbox-3"><input id="checkbox-3" type="checkbox" value="agriculture">Farm or agricultural waste</input></label>
+      </fieldset>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-checkboxes-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;fieldset&gt;</span>
+  <span class="nt">&lt;legend</span> <span class="na">class=</span><span class="s">"form-label-bold"</span><span class="nt">&gt;</span>Which types of waste do you transport regularly?<span class="nt">&lt;/legend&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Select all that apply
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label selected"</span> <span class="na">for=</span><span class="s">"checkbox-1"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"checkbox-1"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"animals"</span><span class="nt">&gt;</span>Waste from animal carcasses<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"checkbox-2"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"checkbox-2"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"mines"</span><span class="nt">&gt;</span>Waste from mines or quarries<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"checkbox-3"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"checkbox-3"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"agriculture"</span><span class="nt">&gt;</span>Farm or agricultural waste<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+<span class="nt">&lt;/fieldset&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">fieldset</span><div class="_element">
+            <span class="_name">legend</span><span class="_classes"><span class="_class">.form-label-bold</span></span> <span class="_text" title="Which types of waste do you transport regularly?">Which types of waste do you transport regularly?</span> 
+          </div><div class="_element">
+            <span class="_name">p</span> <span class="_text" title="Select all that apply">
+                Select all that apply
+              </span> 
+          </div><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span><span class="_class">.selected</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">checkbox-1</span>"</span> </span>  <span class="_text" title="">Waste from animal carcasses</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#checkbox-1</span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">animals</span>"</span> </span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">checkbox-2</span>"</span> </span>  <span class="_text" title="Waste from mines or quarries">Waste from mines or quarries</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#checkbox-2</span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">mines</span>"</span> </span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">checkbox-3</span>"</span> </span>  <span class="_text" title="">Farm or agricultural waste</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#checkbox-3</span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">agriculture</span>"</span> </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<p>
+  Large hit areas aren't always appropriate.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="phone-number">Enter your telephone number</label><input class="form-control" id="phone-number" type="text" /><label class="form-checkbox" for="phone-number-checkbox"><input id="phone-number-checkbox" type="checkbox" value="1">I need to be contacted using a text phone</input></label>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-inline-checkbox-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"phone-number"</span><span class="nt">&gt;</span>Enter your telephone number<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"phone-number"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;&lt;label</span> <span class="na">class=</span><span class="s">"form-checkbox"</span> <span class="na">for=</span><span class="s">"phone-number-checkbox"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"phone-number-checkbox"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>I need to be contacted using a text phone<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">phone-number</span>"</span> </span>  <span class="_text" title="">Enter your telephone number</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#phone-number</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+          </div><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-checkbox</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">phone-number-checkbox</span>"</span> </span>  <span class="_text" title="I need to be contacted using a text phone">I need to be contacted using a text phone</span> <div class="_element">
+              <span class="_name">input</span><span class="_id">#phone-number-checkbox</span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">1</span>"</span> </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Inset form elements
+</h3>
+<p>
+  Insets can be used within forms to emphasise supporting information.
+</p>
+<p>
+  Click on "Yes" to see how this works.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <fieldset>
+        <legend>Do you know their National Insurance number?</legend>
+        <div class="form-group inline">
+          <label class="block-label" for="radio-inline-11"><input id="radio-inline-11" name="radio-inline-group" type="radio" value="Yes">Yes</input></label><label class="block-label" for="radio-inline-12"><input id="radio-inline-12" name="radio-inline-group" type="radio" value="No">No</input></label>
+        </div>
+        <div class="panel-indent" data-control-value="Yes" data-controlled-by="radio-inline-group">
+          <label class="form-label" for="ni-number-2">National Insurance number</label><input class="form-control" id="ni-number-2" type="text" />
+        </div>
+      </fieldset>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-inset-radios-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;fieldset&gt;</span>
+  <span class="nt">&lt;legend&gt;</span>Do you know their National Insurance number?<span class="nt">&lt;/legend&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group inline"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-inline-11"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-inline-11"</span> <span class="na">name=</span><span class="s">"radio-inline-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"Yes"</span><span class="nt">&gt;</span>Yes<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"radio-inline-12"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"radio-inline-12"</span> <span class="na">name=</span><span class="s">"radio-inline-group"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"No"</span><span class="nt">&gt;</span>No<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-indent"</span> <span class="na">data-control-value=</span><span class="s">"Yes"</span> <span class="na">data-controlled-by=</span><span class="s">"radio-inline-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"ni-number-2"</span><span class="nt">&gt;</span>National Insurance number<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"ni-number-2"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/fieldset&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">fieldset</span><div class="_element">
+            <span class="_name">legend</span> <span class="_text" title="Do you know their National Insurance number?">Do you know their National Insurance number?</span> 
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span><span class="_class">.inline</span></span><div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-inline-11</span>"</span> </span>  <span class="_text" title="">Yes</span> <div class="_element">
+                <span class="_name">input</span><span class="_id">#radio-inline-11</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-inline-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">Yes</span>"</span> </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">radio-inline-12</span>"</span> </span>  <span class="_text" title="">No</span> <div class="_element">
+                <span class="_name">input</span><span class="_id">#radio-inline-12</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">radio-inline-group</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">radio</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">No</span>"</span> </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.panel-indent</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">data-control-value</span>="<span class="_value" title="">Yes</span>"</span>  <span class="_attr"><span class="_name">data-controlled-by</span>="<span class="_value" title="">radio-inline-group</span>"</span> </span> <div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">ni-number-2</span>"</span> </span>  <span class="_text" title="">National Insurance number</span> 
+            </div><div class="_element">
+              <span class="_name">input</span><span class="_id">#ni-number-2</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<p>
+  Click on "Citizen of a different country" to see how this works.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <fieldset>
+        <legend class="form-label-bold">What is your nationality?</legend>
+        <p>
+          Select all options that are relevant to you.
+        </p>
+        <div class="form-group">
+          <label class="block-label selected" for="inset-checkbox-1"><input id="inset-checkbox-1" name="inset-checkbox" type="checkbox" value="british">British (including English, Scottish, Welsh and Northern Irish)</input></label><label class="block-label" for="inset-checkbox-2"><input id="inset-checkbox-2" name="inset-checkbox" type="checkbox" value="irish">Irish</input></label><label class="block-label" for="inset-checkbox-3"><input id="inset-checkbox-3" name="inset-checkbox" type="checkbox" value="different">Citizen of a different country</input></label>
+        </div>
+        <div class="panel-indent" data-control-value="different" data-controlled-by="inset-checkbox">
+          <label class="form-label" for="ni-country-name-1">Country name</label><input class="form-control" id="ni-number-2" name="country-name" type="text" />
+        </div>
+      </fieldset>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="forms-inset-checkboxes-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;fieldset&gt;</span>
+  <span class="nt">&lt;legend</span> <span class="na">class=</span><span class="s">"form-label-bold"</span><span class="nt">&gt;</span>What is your nationality?<span class="nt">&lt;/legend&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    Select all options that are relevant to you.
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"block-label selected"</span> <span class="na">for=</span><span class="s">"inset-checkbox-1"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"inset-checkbox-1"</span> <span class="na">name=</span><span class="s">"inset-checkbox"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"british"</span><span class="nt">&gt;</span>British (including English, Scottish, Welsh and Northern Irish)<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"inset-checkbox-2"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"inset-checkbox-2"</span> <span class="na">name=</span><span class="s">"inset-checkbox"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"irish"</span><span class="nt">&gt;</span>Irish<span class="nt">&lt;/input&gt;&lt;/label&gt;&lt;label</span> <span class="na">class=</span><span class="s">"block-label"</span> <span class="na">for=</span><span class="s">"inset-checkbox-3"</span><span class="nt">&gt;&lt;input</span> <span class="na">id=</span><span class="s">"inset-checkbox-3"</span> <span class="na">name=</span><span class="s">"inset-checkbox"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"different"</span><span class="nt">&gt;</span>Citizen of a different country<span class="nt">&lt;/input&gt;&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-indent"</span> <span class="na">data-control-value=</span><span class="s">"different"</span> <span class="na">data-controlled-by=</span><span class="s">"inset-checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"ni-country-name-1"</span><span class="nt">&gt;</span>Country name<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"ni-number-2"</span> <span class="na">name=</span><span class="s">"country-name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/fieldset&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">fieldset</span><div class="_element">
+            <span class="_name">legend</span><span class="_classes"><span class="_class">.form-label-bold</span></span> <span class="_text" title="">What is your nationality?</span> 
+          </div><div class="_element">
+            <span class="_name">p</span> <span class="_text" title="Select all options that are relevant to you.">
+                Select all options that are relevant to you.
+              </span> 
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span><span class="_class">.selected</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">inset-checkbox-1</span>"</span> </span>  <span class="_text" title="British (including English, Scottish, Welsh and Northern Irish)">British (including English, Scottish, Welsh and Northern Irish)</span> <div class="_element">
+                <span class="_name">input</span><span class="_id">#inset-checkbox-1</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">inset-checkbox</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">british</span>"</span> </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">inset-checkbox-2</span>"</span> </span>  <span class="_text" title="">Irish</span> <div class="_element">
+                <span class="_name">input</span><span class="_id">#inset-checkbox-2</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">inset-checkbox</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">irish</span>"</span> </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.block-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">inset-checkbox-3</span>"</span> </span>  <span class="_text" title="Citizen of a different country">Citizen of a different country</span> <div class="_element">
+                <span class="_name">input</span><span class="_id">#inset-checkbox-3</span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">inset-checkbox</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">checkbox</span>"</span>  <span class="_attr"><span class="_name">value</span>="<span class="_value" title="">different</span>"</span> </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.panel-indent</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">data-control-value</span>="<span class="_value" title="">different</span>"</span>  <span class="_attr"><span class="_name">data-controlled-by</span>="<span class="_value" title="">inset-checkbox</span>"</span> </span> <div class="_element">
+              <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">ni-country-name-1</span>"</span> </span>  <span class="_text" title="">Country name</span> 
+            </div><div class="_element">
+              <span class="_name">input</span><span class="_id">#ni-number-2</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">name</span>="<span class="_value" title="">country-name</span>"</span>  <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">text</span>"</span> </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="buttons.html">Buttons</a>
+  </h2><p>Use buttons to move though a transaction, aim to use only one button per page.</p>
+
+<h3 id="button-text">Button text</h3>
+
+<p>Button text should be short and describe the action the button performs.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <button class="button">Save and continue</button><button class="button button-secondary">Save and continue</button>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Save and continue<span class="nt">&lt;/button&gt;&lt;button</span> <span class="na">class=</span><span class="s">"button button-secondary"</span><span class="nt">&gt;</span>Save and continue<span class="nt">&lt;/button&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">button</span><span class="_classes"><span class="_class">.button</span></span> <span class="_text" title="">Save and continue</span> 
+        </div>
+        <div class="_element">
+          <span class="_name">button</span><span class="_classes"><span class="_class">.button</span><span class="_class">.button-secondary</span></span> <span class="_text" title="">Save and continue</span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<p>
+  Launch your service with a Start now button.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <button class="button button-get-started">Start now</button>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button button-get-started"</span><span class="nt">&gt;</span>Start now<span class="nt">&lt;/button&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">button</span><span class="_classes"><span class="_class">.button</span><span class="_class">.button-get-started</span></span> <span class="_text" title="">Start now</span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<p>
+  Align the primary action button to the left edge of your form, in the user's line of sight.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="form-group">
+        <label class="form-label" for="email-address-1">Email address</label><input class="form-control" id="email-address-1" type="email" />
+      </div>
+      <div class="form-group">
+        <p>
+          <button class="button">Save and continue</button>
+        </p>
+        <p>
+          <a href="#back">Back</a>
+        </p>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"form-label"</span> <span class="na">for=</span><span class="s">"email-address-1"</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"email-address-1"</span> <span class="na">type=</span><span class="s">"email"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>Save and continue<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#back"</span><span class="nt">&gt;</span>Back<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">label</span><span class="_classes"><span class="_class">.form-label</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">for</span>="<span class="_value" title="">email-address-1</span>"</span> </span>  <span class="_text" title="">Email address</span> 
+          </div><div class="_element">
+            <span class="_name">input</span><span class="_id">#email-address-1</span><span class="_classes"><span class="_class">.form-control</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">type</span>="<span class="_value" title="">email</span>"</span> </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.form-group</span></span><div class="_element">
+            <span class="_name">p</span><div class="_element">
+              <span class="_name">button</span><span class="_classes"><span class="_class">.button</span></span> <span class="_text" title="">Save and continue</span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">p</span><div class="_element">
+              <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">#back</span>"</span> </span>  <span class="_text" title="">Back</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="disabled-buttons">Disabled buttons</h3>
+
+<p>Disabled buttons should be set at 50% opacity.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <button class="button" disabled="">Primary button</button><button class="button button-secondary" disabled="">Secondary button</button>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>Primary button<span class="nt">&lt;/button&gt;&lt;button</span> <span class="na">class=</span><span class="s">"button button-secondary"</span> <span class="na">disabled=</span><span class="s">""</span><span class="nt">&gt;</span>Secondary button<span class="nt">&lt;/button&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">button</span><span class="_classes"><span class="_class">.button</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">disabled</span>="<span class="_value" title=""></span>"</span> </span>  <span class="_text" title="">Primary button</span> 
+        </div>
+        <div class="_element">
+          <span class="_name">button</span><span class="_classes"><span class="_class">.button</span><span class="_class">.button-secondary</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">disabled</span>="<span class="_value" title=""></span>"</span> </span>  <span class="_text" title="">Secondary button</span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="errors-validation.html">Errors and validation</a>
+  </h2>
+  <p>Summarise validation errors in a box at the top of your page. Use jump links in the summary box to reach the errors in the form.</p>
+  
+  <p>Ensure error messages make sense when read by screen readers.</p>
+  
+  <h3 id="form-validation">Form validation</h3>
+  
+  <p>use a red border on the box to visually connect the errors and messages in the form
+  apply the same colour to the area of the form where an error has occurred
+  error copy should be specific to the question and validation should identify all errors
+  errors should not cause pre-filled fields to clear</p>
+  
+</div><div class="glypto-section">
+  <h2 class="glypto-title">
+    <a href="phase-banners.html">Alpha and beta banners</a>
+  </h2><p>You have to use an alpha banner if your thing is in alpha, and a beta banner if it’s in beta.</p>
+
+<h3 id="things-on-the-servicegovuk-subdomain">Things on the service.gov.uk subdomain</h3>
+
+<p>If your service is in beta or alpha, you must show the relevant banner in the header. It should sit directly underneath the black GOV.UK header and colour bar.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="global-subheader container">
+        <div class="subheader-item phase-banner">
+            <span class="phase-tag phase-tag-alpha">
+              ALPHA
+            </span>
+          <span class="phase-banner-message">
+            This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.
+          </span>
+        </div>
+      </div>
+      
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"global-subheader container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"subheader-item phase-banner"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-tag phase-tag-alpha"</span><span class="nt">&gt;</span>
+        ALPHA
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-banner-message"</span><span class="nt">&gt;</span>
+      This is a new service – your <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/feedback"</span><span class="nt">&gt;</span>feedback<span class="nt">&lt;/a&gt;</span> will help us to improve it.
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.global-subheader</span><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.subheader-item</span><span class="_class">.phase-banner</span></span><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-tag</span><span class="_class">.phase-tag-alpha</span></span> <span class="_text" title="">
+                  ALPHA
+                </span> 
+            </div><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-banner-message</span></span> <span class="_text" title="This is a new service – your  will help us to improve it.">
+                  This is a new service – your  will help us to improve it.
+                </span> <div class="_element">
+                <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">/feedback</span>"</span> </span>  <span class="_text" title="">feedback</span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="global-subheader container">
+        <div class="subheader-item phase-banner">
+            <span class="phase-tag phase-tag-beta">
+              BETA
+            </span>
+          <span class="phase-banner-message">
+            This is a new service – your <a href="/feedback">feedback</a> will help us to improve it.
+          </span>
+        </div>
+      </div>
+      
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"global-subheader container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"subheader-item phase-banner"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-tag phase-tag-beta"</span><span class="nt">&gt;</span>
+        BETA
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"phase-banner-message"</span><span class="nt">&gt;</span>
+      This is a new service – your <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/feedback"</span><span class="nt">&gt;</span>feedback<span class="nt">&lt;/a&gt;</span> will help us to improve it.
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.global-subheader</span><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.subheader-item</span><span class="_class">.phase-banner</span></span><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-tag</span><span class="_class">.phase-tag-beta</span></span> <span class="_text" title="">
+                  BETA
+                </span> 
+            </div><div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.phase-banner-message</span></span> <span class="_text" title="This is a new service – your  will help us to improve it.">
+                  This is a new service – your  will help us to improve it.
+                </span> <div class="_element">
+                <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="">/feedback</span>"</span> </span>  <span class="_text" title="">feedback</span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="things-on-govuk">Things on GOV.UK</h3>
+
+<p>If your GOV.UK content is in beta or alpha, show the relevant banner below the page title, but above the body content. You can see what they should look like in this <a href="https://designnotes.blog.gov.uk/2014/03/26/betas-on-gov-uk/">blog post</a>.</p>
+
+</div>
+  </div>
+</main>
+<script>
+  APP_CONTEXT = {
+    sitemap: [{"path":"./","url":"/GOV.UK/","children":[{"path":"layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"../MOD.UK/","url":"/MOD.UK/","children":[{"path":"../MOD.UK/featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+    current_url: "/GOV.UK/"
+  }
+</script>
+    <script src="scripts/forms.js" type="text/javascript"></script><script src="../assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>

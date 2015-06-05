@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title>Styleguide</title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /><link href="assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section--">
+    <script>
+      // If necessary insert a placeholder before the real menu is created
+      if(!store.get('glypto-menu-hidden')) {
+        var e = document.createElement('div');
+        e.id = 'glypto-nav-placeholder';
+        document.body.insertBefore(e, document.body.childNodes[0]);
+      }
+    </script>
+    <glypto-menu></glypto-menu>
+    <script id="glyptotheque/menu.html" type="text/ng-template">
+      <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+        <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="./">Styleguide</a>
+        <div class="search">
+          <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+        </div>
+        <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+      </nav>
+    </script>
+    <script id="glyptotheque/menu-tree.html" type="text/ng-template">
+      <ul>
+        <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+      </ul>
+    </script>
+    <script id="glyptotheque/menu-node.html" type="text/ng-template">
+      <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+            {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+      </li>
+    </script><main class="glyptotheque">
+      <header class="glypto-header">
+        <div class="glypto-container">
+          <h1 class="glypto-title">
+            Styleguide
+          </h1>
+          <div class="glypto-source fa fa-github">
+            <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/glyptotheque/site-index.html.slim" target="_blank">Page source</a>
+          </div>
+        </div>
+      </header>
+      <div class="glypto-container">
+        <ul class="glypto-section-list">
+          <li class="glypto-section-list-item">
+            <a href="GOV.UK/">
+                <h2 class="glypto-section-name">
+                  GOV.UK Elements
+                </h2>
+                <div class="glypto-section-meta">
+                  8 items
+                </div></a>
+          </li>
+          <li class="glypto-section-list-item">
+            <a href="MOD.UK/">
+                <h2 class="glypto-section-name">
+                  MOD.UK
+                </h2>
+                <div class="glypto-section-meta">
+                  1 item
+                </div></a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script>
+      APP_CONTEXT = {
+        sitemap: [{"path":"GOV.UK/","url":"/GOV.UK/","children":[{"path":"GOV.UK/layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"GOV.UK/typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"GOV.UK/data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"GOV.UK/headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"GOV.UK/forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"GOV.UK/buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"GOV.UK/errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"GOV.UK/phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"MOD.UK/","url":"/MOD.UK/","children":[{"path":"MOD.UK/featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+        current_url: "/"
+      }
+    </script><script src="assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>

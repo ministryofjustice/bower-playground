@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title> Layout ›  GOV.UK Elements  › Styleguide </title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="../assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section-gov-uk"><script>
+  // If necessary insert a placeholder before the real menu is created
+  if(!store.get('glypto-menu-hidden')) {
+    var e = document.createElement('div');
+    e.id = 'glypto-nav-placeholder';
+    document.body.insertBefore(e, document.body.childNodes[0]);
+  }
+</script>
+<glypto-menu></glypto-menu>
+<script id="glyptotheque/menu.html" type="text/ng-template">
+  <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+    <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="../">Styleguide</a>
+    <div class="search">
+      <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+    </div>
+    <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+  </nav>
+</script>
+<script id="glyptotheque/menu-tree.html" type="text/ng-template">
+  <ul>
+    <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+  </ul>
+</script>
+<script id="glyptotheque/menu-node.html" type="text/ng-template">
+  <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+        {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+  </li>
+</script><main class="glyptotheque">
+  <header class="glypto-header">
+    <div class="glypto-container">
+      <div class="glypto-breadcrumbs">
+        <a href="../">Styleguide</a> <span class='sep'>›</span> <a href="./">GOV.UK Elements</a>
+      </div>
+      <h1 class="glypto-title">
+        Layout
+      </h1>
+      <div class="glypto-source fa fa-github">
+        <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/GOV.UK/layout.html.slim" target="_blank">Page source</a>
+      </div>
+    </div>
+  </header>
+  <div class="glypto-container"><h3>
+  Halves
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-halves" scrolling="no" src="layout-halves-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-halves-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Thirds
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-thirds" scrolling="no" src="layout-thirds-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-thirds-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-two-thirds"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-third"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-two-thirds</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-third</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Quarters
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-quarters" scrolling="no" src="layout-quarters-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="layout-quarters-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-quarter"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>
+        Content
+      <span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.container</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.column-quarter</span></span><div class="_element">
+                <span class="_name">p</span> <span class="_text" title="">
+                    Content
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+  </div>
+</main>
+<script>
+  APP_CONTEXT = {
+    sitemap: [{"path":"./","url":"/GOV.UK/","children":[{"path":"layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"../MOD.UK/","url":"/MOD.UK/","children":[{"path":"../MOD.UK/featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+    current_url: "/GOV.UK/layout.html"
+  }
+</script><script src="../assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>

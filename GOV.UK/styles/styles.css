@@ -1,0 +1,415 @@
+@charset "UTF-8";
+.global-header, .global-header + .global-subheader, .global-footer {
+  padding: 10px 15px; }
+
+body {
+  font-size: 19px;
+  font-family: nta, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+a:link, details summary:link {
+  color: #005ea5; }
+a:hover, details summary:hover {
+  color: #2e8aca; }
+a:visited, details summary:visited {
+  color: #4c2c92; }
+a:active, details summary:active {
+  color: #f47738; }
+a:focus, details summary:focus {
+  background: #ffbf47;
+  outline: 2px solid #ffbf47; }
+
+h1, h2, h3, h4 {
+  line-height: 1.04; }
+
+h1,
+.heading-xlarge {
+  font-size: 2.52632em;
+  margin: 1em 0; }
+
+h2,
+.heading-large {
+  font-size: 1.89474em;
+  margin-top: 1.57895em;
+  margin-bottom: 0.55728em; }
+
+h3,
+.heading-medium {
+  font-size: 1.26316em;
+  margin-top: 1.89474em;
+  margin-bottom: 0.84211em; }
+
+h4,
+.heading-small {
+  font-size: 1em;
+  margin-top: 1.5em;
+  margin-bottom: 0.66667em; }
+
+h5,
+.heading-xsmall {
+  font-size: 1em;
+  color: #6f777b;
+  margin-top: 1em;
+  margin-bottom: .5em; }
+
+p {
+  margin: 0 0 1em; }
+  p:last-child {
+    margin-bottom: 0; }
+
+.intro-paragraph,
+.lede {
+  font-size: 1.26316em; }
+
+.font-xsmall,
+small {
+  font-size: 0.84211em; }
+
+ul,
+ol {
+  padding-left: 1em; }
+
+.u-vh {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.u-hide-text, .global-footer .ogl-logo {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
+
+[data-controlled-by] {
+  -webkit-transition: opacity 300ms ease-out;
+          transition: opacity 300ms ease-out; }
+
+.u-hidden,
+[data-control-value]:not(.u-expanded) {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0; }
+
+.u-expanded.u-expanded {
+  opacity: 1;
+  visibility: visible; }
+
+.global-header {
+  background: #0b0c0c;
+  color: #fff;
+  line-height: 30px; }
+  .global-header .skip-link a, .global-header .skip-link details summary, details .global-header .skip-link summary {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: .9em;
+    line-height: 1;
+    position: absolute;
+    left: -999em;
+    overflow: hidden;
+    text-decoration: underline;
+    color: #0b0c0c; }
+    .global-header .skip-link a:focus, .global-header .skip-link details summary:focus, details .global-header .skip-link summary:focus {
+      position: static; }
+  .global-header a, .global-header details summary, details .global-header summary {
+    color: inherit;
+    text-decoration: none; }
+  .global-header .header-branding {
+    width: 33.33%;
+    float: left; }
+  .global-header .header-logo {
+    -webkit-transition: border 200ms;
+            transition: border 200ms;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.57895em;
+    padding: 1px 0 3px 1.42105em;
+    outline: 0;
+    color: white;
+    background: url("../../assets/images/gov.uk_logotype_crown.png") no-repeat 0 2px;
+    background-size: 1.15em;
+    border-bottom: 1px solid transparent; }
+    .global-header .header-logo:hover, .global-header .header-logo:focus {
+      border-bottom-color: #fff; }
+    .global-header .header-logo span {
+      display: block;
+      position: relative;
+      top: 3px;
+      line-height: 27px; }
+  .global-header .header-proposition {
+    float: left; }
+  .global-header .proposition-name {
+    position: relative;
+    font-size: 1.26316em;
+    font-weight: 500;
+    top: 3px; }
+  .global-header .container {
+    position: relative; }
+    .global-header .container:after {
+      content: "";
+      display: table;
+      clear: both; }
+  .global-header .header-bar {
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    left: 0;
+    background: #005ea5;
+    height: 10px; }
+  .global-header .header-menu-toggle {
+    display: none; }
+
+.subheader-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  font-size: 15px;
+  line-height: 1; }
+  .subheader-item .phase-tag {
+    margin-top: -3px;
+    margin-bottom: -3px; }
+
+.global-footer {
+  font-size: 0.84211em;
+  color: #555;
+  border-top: 10px solid #005ea5;
+  background: #dee0e2;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  .global-footer a, .global-footer details summary, details .global-footer summary {
+    color: inherit; }
+    .global-footer a:hover, .global-footer details summary:hover, details .global-footer summary:hover {
+      color: #444; }
+  .global-footer .support-links,
+  .global-footer .copyright {
+    display: inline-block; }
+  .global-footer .support-links {
+    width: 70%; }
+    .global-footer .support-links ul {
+      list-style: none;
+      margin: 0 0 1em;
+      padding: 0; }
+    .global-footer .support-links li {
+      margin-right: 15px;
+      display: inline-block; }
+  .global-footer .open-government-licence {
+    padding-left: 50px; }
+  .global-footer .ogl-logo {
+    height: 17px;
+    width: 41px;
+    float: left;
+    background: url("../../assets/images/open-government-licence_2x.png") no-repeat;
+    background-size: 41px 17px;
+    margin-left: -50px;
+    text-indent: -999em; }
+  .global-footer .copyright {
+    text-align: right;
+    width: 25%; }
+    .global-footer .copyright a, .global-footer .copyright details summary, details .global-footer .copyright summary {
+      display: block;
+      padding-top: 110px;
+      background: url("../../assets/images/govuk-crest.png") no-repeat 100% 0;
+      text-decoration: none; }
+
+.phase-tag {
+  padding: 2px 5px;
+  margin-right: 10px;
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  background: #6f777b; }
+  .phase-tag.phase-tag-alpha {
+    background: #d53880; }
+  .phase-tag.phase-tag-beta {
+    background: #f47738; }
+
+table {
+  width: 100%;
+  font-size: 0.84211em;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  table th {
+    text-align: left;
+    font-weight: 700; }
+  table th,
+  table td {
+    padding: .75em 1.25em .6em 0;
+    border-bottom: 1px solid #bfc1c3; }
+  table .numeric {
+    text-align: right; }
+
+.data {
+  padding: 0.52632em 0; }
+
+.data-title {
+  font-size: 4.21053em;
+  line-height: .8;
+  font-weight: bold; }
+
+.data-subtitle {
+  margin-top: 0.21053em;
+  font-size: 0.84211em;
+  font-weight: bold; }
+
+.data-smaller .data-title {
+  font-size: 2.52632em; }
+
+.breadcrumbs ol,
+.breadcrumbs ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+.breadcrumbs li {
+  display: inline-block; }
+  .breadcrumbs li:before {
+    content: '›';
+    font-size: 1.3em;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+    display: inline-block;
+    color: #bfc1c3; }
+  .breadcrumbs li:first-child:before {
+    content: none; }
+.breadcrumbs a, .breadcrumbs details summary, details .breadcrumbs summary {
+  color: inherit; }
+
+.panel-indent {
+  border-left: 4px solid #bfc1c3;
+  padding: 10px 15px;
+  margin: 1.57895em 0.78947em 1.57895em 0;
+  clear: left; }
+  .panel-indent p:only-child,
+  .panel-indent p:last-child {
+    margin: 0; }
+
+details summary {
+  color: #005ea5;
+  display: inline-block;
+  padding: 0 5px;
+  cursor: pointer;
+  text-decoration: underline; }
+  details summary:focus {
+    background: none;
+    color: #005ea5;
+    text-decoration: none; }
+details .panel-indent {
+  margin-left: 9px;
+  margin-top: 0; }
+
+.form-control {
+  border: 1px solid #bfc1c3;
+  padding: 0.21053em;
+  font-size: 1em;
+  border-radius: 0;
+  width: 50%;
+  min-width: 5em; }
+  .form-control:focus {
+    outline: 3px solid #ffbf47; }
+
+.form-group {
+  float: left;
+  width: 100%;
+  margin-bottom: 0.42105em; }
+  .form-group + .form-group {
+    margin-top: 1.15789em; }
+  .form-group .form-hint {
+    color: #6f777b;
+    margin: 0.42105em 0 0.26316em; }
+
+.form-label {
+  display: block;
+  margin-bottom: 0.26316em; }
+
+.block-label input[type="radio"],
+.block-label input[type="checkbox"], .form-checkbox input[type="radio"],
+.form-checkbox input[type="checkbox"] {
+  position: relative;
+  margin: 0 .6em 0 -1.8em;
+  top: -.1em; }
+
+.block-label {
+  float: left;
+  clear: left;
+  cursor: pointer;
+  padding: 0.68421em 1.31579em 0.68421em 2.26316em;
+  margin: 0.26316em 0.52632em 0.26316em 0;
+  background: #dee0e2;
+  border: 1px solid #dee0e2; }
+  .inline .block-label {
+    display: inline-block;
+    clear: none; }
+  .block-label:hover, .block-label:focus, .block-label.s-focused {
+    border-color: #6f777b; }
+  .block-label:focus, .block-label.s-focused {
+    outline: 3px solid #ffbf47;
+    background: white; }
+  .block-label.s-selected {
+    border-color: #0b0c0c;
+    background: white; }
+
+.form-block {
+  float: left;
+  width: 100%;
+  clear: left;
+  margin: .5em 0; }
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+  fieldset > fieldset {
+    margin: 0 0 0.26316em;
+    display: block; }
+  fieldset .form-label-bold {
+    font-weight: bold;
+    font-size: 1.26316em; }
+
+.form-checkbox {
+  display: block;
+  padding-left: 1em;
+  margin: 0.78947em 0; }
+
+.button {
+  position: relative;
+  background: #00823b;
+  color: white;
+  padding: 0.52632em 0.78947em;
+  border: 0;
+  font-size: 1em;
+  border-bottom: 2px solid #00451f; }
+  .button:hover:not([disabled]) {
+    background-color: #00692f; }
+  .button:active {
+    border-color: transparent;
+    top: 2px; }
+  .button:focus {
+    outline: 3px solid #ffbf47; }
+  .button + button, .button + input {
+    margin-left: .5em; }
+  .button[disabled] {
+    opacity: .5;
+    cursor: default;
+    outline: none; }
+    .button[disabled]:active {
+      border-color: inherit;
+      top: 0; }
+
+.button-secondary {
+  color: #0b0c0c;
+  background: #bfc1c3;
+  border-color: #6f777b; }
+  .button-secondary:hover:not([disabled]) {
+    background-color: #b2b4b7; }
+
+.button-get-started {
+  font-weight: 700;
+  font-size: 1.26316em;
+  padding: 0.42105em 2.10526em 0.42105em 1.05263em;
+  background-image: url("../../assets/images/icon-pointer-2x.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  background-size: 30px 19px; }

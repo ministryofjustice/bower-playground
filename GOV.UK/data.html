@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title> Data ›  GOV.UK Elements  › Styleguide </title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+    <link href="styles/layout.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="../assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section-gov-uk"><script>
+  // If necessary insert a placeholder before the real menu is created
+  if(!store.get('glypto-menu-hidden')) {
+    var e = document.createElement('div');
+    e.id = 'glypto-nav-placeholder';
+    document.body.insertBefore(e, document.body.childNodes[0]);
+  }
+</script>
+<glypto-menu></glypto-menu>
+<script id="glyptotheque/menu.html" type="text/ng-template">
+  <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+    <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="../">Styleguide</a>
+    <div class="search">
+      <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+    </div>
+    <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+  </nav>
+</script>
+<script id="glyptotheque/menu-tree.html" type="text/ng-template">
+  <ul>
+    <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+  </ul>
+</script>
+<script id="glyptotheque/menu-node.html" type="text/ng-template">
+  <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+        {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+  </li>
+</script><main class="glyptotheque">
+  <header class="glypto-header">
+    <div class="glypto-container">
+      <div class="glypto-breadcrumbs">
+        <a href="../">Styleguide</a> <span class='sep'>›</span> <a href="./">GOV.UK Elements</a>
+      </div>
+      <h1 class="glypto-title">
+        Data
+      </h1>
+      <div class="glypto-source fa fa-github">
+        <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/GOV.UK/data.html.slim" target="_blank">Page source</a>
+      </div>
+    </div>
+  </header>
+  <div class="glypto-container"><p>Data is recommended as an alternative to using images.</p>
+
+<ul>
+  <li><a href="https://www.gov.uk/service-manual/user-centered-design/data-visualisation.html">Read more about GOV.UK data visualisation</a></li>
+  <li><a href="https://www.gov.uk/government/how-government-works#how-governement-is-run">See an example of data on GOV.UK</a></li>
+  <li><a href="https://www.gov.uk/performance/tax-disc">See an example of data on the GOV.UK Performance Platform</a></li>
+</ul>
+
+<h3 id="data-visualisation">Data visualisation</h3>
+
+<p>For screen readers, ensure the data value appears first so it makes sense when read aloud.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="grid-row">
+        <div class="column-half">
+          <div class="data">
+            <div class="data-title">
+              24
+            </div>
+            <div class="data-subtitle">
+              Ministerial departments
+            </div>
+          </div>
+        </div>
+        <div class="column-half">
+          <div class="data">
+            <div class="data-title">
+              80px
+            </div>
+            <div class="data-subtitle">
+              16px
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        24
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        Ministerial departments
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        80px
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        16px
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    24
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="Ministerial departments">
+                    Ministerial departments
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    80px
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    16px
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="grid-row">
+        <div class="column-half">
+          <div class="data data-smaller">
+            <div class="data-title">
+              56/154
+            </div>
+            <div class="data-subtitle">
+              on GOV.UK
+            </div>
+          </div>
+        </div>
+        <div class="column-half">
+          <div class="data data-smaller">
+            <div class="data-title">
+              48px
+            </div>
+            <div class="data-subtitle">
+              16px
+            </div>
+          </div>
+        </div>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data data-smaller"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        56/154
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        on GOV.UK
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"column-half"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data data-smaller"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-title"</span><span class="nt">&gt;</span>
+        48px
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"data-subtitle"</span><span class="nt">&gt;</span>
+        16px
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.grid-row</span></span><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span><span class="_class">.data-smaller</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    56/154
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    on GOV.UK
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_classes"><span class="_class">.column-half</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.data</span><span class="_class">.data-smaller</span></span><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-title</span></span> <span class="_text" title="">
+                    48px
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.data-subtitle</span></span> <span class="_text" title="">
+                    16px
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="data-in-a-table">Data in a table</h3>
+<p>Consider putting content into tables to make it easier to scan.</p>
+
+<ul>
+  <li>when comparing rows of numbers, align numbers to the right in table cells</li>
+  <li>use <a href="https://github.com/alphagov/govuk_frontend_toolkit#tabular-numbers">tabular numbers</a> to allow numbers of the same width to be more easily compared</li>
+</ul>
+
+<p><a href="https://www.gov.uk/performance/carers-allowance/volumetrics">Example of numeric table usage on GOV.UK</a></p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">
+              Date
+            </th>
+            <th class="numeric" scope="col">
+              Paper form
+            </th>
+            <th class="numeric" scope="col">
+              Digital
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              25 November to 1 December 2013
+            </td>
+            <td class="numeric">
+              2,763
+            </td>
+            <td class="numeric">
+              1,792
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2 to 8 December 2013
+            </td>
+            <td class="numeric">
+              2,850
+            </td>
+            <td class="numeric">
+              1,740
+            </td>
+          </tr>
+          <tr>
+            <td>
+              9 to 15 December 2013
+            </td>
+            <td class="numeric">
+              2,388
+            </td>
+            <td class="numeric">
+              1,683
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Date
+      <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"numeric"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Paper form
+      <span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"numeric"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+        Digital
+      <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        25 November to 1 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,763
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,792
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        2 to 8 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,850
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,740
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        9 to 15 December 2013
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        2,388
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"numeric"</span><span class="nt">&gt;</span>
+        1,683
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">table</span><div class="_element">
+            <span class="_name">thead</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">th</span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Date
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">th</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Paper form
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">th</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">scope</span>="<span class="_value" title="">col</span>"</span> </span>  <span class="_text" title="">
+                    Digital
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">tbody</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="25 November to 1 December 2013">
+                    25 November to 1 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,763
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,792
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="2 to 8 December 2013">
+                    2 to 8 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,850
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,740
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="9 to 15 December 2013">
+                    9 to 15 December 2013
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    2,388
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span><span class="_classes"><span class="_class">.numeric</span></span> <span class="_text" title="">
+                    1,683
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><p>Not all content in tables should be right aligned.</p>
+
+<p><a href="https://www.gov.uk/pay-leave-for-parents/y/yes/2013-1-2/employee/employee/yes/yes/122.00-week/yes/yes/yes/122.00-week/yes">Example of table usage on GOV.UK</a></p>
+
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">
+              Dates and amounts
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              First 6 weeks
+            </td>
+            <td>
+              £109.80 per week
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Next 33 weeks
+            </td>
+            <td>
+              £109.80 per week
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Total estimated pay
+            </td>
+            <td>
+              £4,282.20
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Tell the mother’s employer
+            </td>
+            <td>
+              28 days before they want to start maternity pay
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+        Dates and amounts
+      <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        First 6 weeks
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £109.80 per week
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Next 33 weeks
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £109.80 per week
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Total estimated pay
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        £4,282.20
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        Tell the mother’s employer
+      <span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>
+        28 days before they want to start maternity pay
+      <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">table</span><div class="_element">
+            <span class="_name">thead</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">th</span> <span class="_attributes"> <span class="_attr"><span class="_name">colspan</span>="<span class="_value" title="">2</span>"</span> </span>  <span class="_text" title="Dates and amounts">
+                    Dates and amounts
+                  </span> 
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">tbody</span><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="First 6 weeks">
+                    First 6 weeks
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="£109.80 per week">
+                    £109.80 per week
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Next 33 weeks">
+                    Next 33 weeks
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="£109.80 per week">
+                    £109.80 per week
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Total estimated pay">
+                    Total estimated pay
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="">
+                    £4,282.20
+                  </span> 
+              </div>
+            </div><div class="_element">
+              <span class="_name">tr</span><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="Tell the mother’s employer">
+                    Tell the mother’s employer
+                  </span> 
+              </div><div class="_element">
+                <span class="_name">td</span> <span class="_text" title="28 days before they want to start maternity pay">
+                    28 days before they want to start maternity pay
+                  </span> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+  </div>
+</main>
+<script>
+  APP_CONTEXT = {
+    sitemap: [{"path":"./","url":"/GOV.UK/","children":[{"path":"layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"../MOD.UK/","url":"/MOD.UK/","children":[{"path":"../MOD.UK/featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+    current_url: "/GOV.UK/data.html"
+  }
+</script><script src="../assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>

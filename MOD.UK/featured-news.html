@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title> Featured News ›  MOD.UK  › Styleguide </title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="../assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section-mod-uk"><script>
+  // If necessary insert a placeholder before the real menu is created
+  if(!store.get('glypto-menu-hidden')) {
+    var e = document.createElement('div');
+    e.id = 'glypto-nav-placeholder';
+    document.body.insertBefore(e, document.body.childNodes[0]);
+  }
+</script>
+<glypto-menu></glypto-menu>
+<script id="glyptotheque/menu.html" type="text/ng-template">
+  <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+    <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="../">Styleguide</a>
+    <div class="search">
+      <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+    </div>
+    <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+  </nav>
+</script>
+<script id="glyptotheque/menu-tree.html" type="text/ng-template">
+  <ul>
+    <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+  </ul>
+</script>
+<script id="glyptotheque/menu-node.html" type="text/ng-template">
+  <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+        {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+  </li>
+</script><main class="glyptotheque">
+  <header class="glypto-header">
+    <div class="glypto-container">
+      <div class="glypto-breadcrumbs">
+        <a href="../">Styleguide</a> <span class='sep'>›</span> <a href="./">MOD.UK</a>
+      </div>
+      <h1 class="glypto-title">
+        Featured News
+      </h1>
+      <div class="glypto-source fa fa-github">
+        <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/MOD.UK/featured-news.html.slim" target="_blank">Page source</a>
+      </div>
+    </div>
+  </header>
+  <div class="glypto-container"><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <iframe frameborder="0" id="iframe-4-items" scrolling="no" src="featured-news-4-items-isolated.html"></iframe>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button><a class="_isolated" target="_blank" title="Isolated version" tabindex="-1" href="featured-news-4-items-isolated.html"><span>Isolate</span> <i class="fa fa-external-link"></i></a></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"featured-news"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"feature"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"feature-image-holder"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"Army launches new recruitment campaign"</span> <span class="na">class=</span><span class="s">"feature-image"</span> <span class="na">src=</span><span class="s">"https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28902/s630_Army_launches_recruitment_campaign.jpg"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"feature-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"meta"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2015-01-16T15:21:29+00:00"</span><span class="nt">&gt;</span>16 January 2015<span class="nt">&lt;/time&gt;</span>— News story
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/government/news/army-launches-new-recruitment-campaign"</span><span class="nt">&gt;</span>Army launches new recruitment campaign<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>
+          New campaign 'Normal Day' showcases the Army's role and relevance in changing times.
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"feature feature-small"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"feature-image-holder"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"img"</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"Military recognised in Stonewall’s top 100"</span> <span class="na">class=</span><span class="s">"feature-image"</span> <span class="na">src=</span><span class="s">"https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"feature-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"meta"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2015-01-14T13:35:26+00:00"</span><span class="nt">&gt;</span>14 January 2015<span class="nt">&lt;/time&gt;</span>— News story
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;</span>Military recognised in Stonewall’s top 100<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>
+          The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"feature feature-small"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"feature-image-holder"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"img"</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"Military recognised in Stonewall’s top 100"</span> <span class="na">class=</span><span class="s">"feature-image"</span> <span class="na">src=</span><span class="s">"https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"feature-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"meta"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2015-01-14T13:35:26+00:00"</span><span class="nt">&gt;</span>14 January 2015<span class="nt">&lt;/time&gt;</span>— News story
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;</span>Military recognised in Stonewall’s top 100<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>
+          The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+  <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"feature feature-small last"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"feature-image-holder"</span><span class="nt">&gt;&lt;a</span> <span class="na">class=</span><span class="s">"img"</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;&lt;img</span> <span class="na">alt=</span><span class="s">"Military recognised in Stonewall’s top 100"</span> <span class="na">class=</span><span class="s">"feature-image"</span> <span class="na">src=</span><span class="s">"https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg"</span> <span class="nt">/&gt;&lt;/a&gt;&lt;/span&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"feature-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"meta"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2015-01-14T13:35:26+00:00"</span><span class="nt">&gt;</span>14 January 2015<span class="nt">&lt;/time&gt;</span>— News story
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;h2&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/government/news/military-recognised-in-stonewalls-top-100"</span><span class="nt">&gt;</span>Military recognised in Stonewall’s top 100<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/h2&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>
+          The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.featured-news</span></span><div class="_element">
+            <span class="_name">article</span><span class="_classes"><span class="_class">.feature</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.content</span></span><div class="_element">
+                <span class="_name">span</span><span class="_classes"><span class="_class">.feature-image-holder</span></span><div class="_element">
+                  <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span> <div class="_element">
+                    <span class="_name">img</span><span class="_classes"><span class="_class">.feature-image</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">alt</span>="<span class="_value" title="Army launches new recruitment campaign">Army launches new recruitment campaign</span>"</span>  <span class="_attr"><span class="_name">src</span>="<span class="_value" title="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28902/s630_Army_launches_recruitment_campaign.jpg">https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28902/s630_Army_launches_recruitment_campaign.jpg</span>"</span> </span> 
+                  </div>
+                </div>
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.feature-text</span></span><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.meta</span></span> <span class="_text" title="— News story">
+                      — News story
+                    </span> <div class="_element">
+                    <span class="_name">time</span> <span class="_attributes"> <span class="_attr"><span class="_name">datetime</span>="<span class="_value" title="">2015-01-16T15:21:29+00:00</span>"</span> </span>  <span class="_text" title="">16 January 2015</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">h2</span><div class="_element">
+                    <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/army-launches-new-recruitment-campaign">/government/news/army-launches-new-recruitment-campaign</span>"</span> </span>  <span class="_text" title="Army launches new recruitment campaign">Army launches new recruitment campaign</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="New campaign 'Normal Day' showcases the Army's role and relevance in changing times.">
+                      New campaign 'Normal Day' showcases the Army's role and relevance in changing times.
+                    </span> 
+                </div>
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">article</span><span class="_classes"><span class="_class">.feature</span><span class="_class">.feature-small</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.content</span></span><div class="_element">
+                <span class="_name">span</span><span class="_classes"><span class="_class">.feature-image-holder</span></span><div class="_element">
+                  <span class="_name">a</span><span class="_classes"><span class="_class">.img</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span> <div class="_element">
+                    <span class="_name">img</span><span class="_classes"><span class="_class">.feature-image</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">alt</span>="<span class="_value" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span>"</span>  <span class="_attr"><span class="_name">src</span>="<span class="_value" title="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg">https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg</span>"</span> </span> 
+                  </div>
+                </div>
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.feature-text</span></span><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.meta</span></span> <span class="_text" title="— News story">
+                      — News story
+                    </span> <div class="_element">
+                    <span class="_name">time</span> <span class="_attributes"> <span class="_attr"><span class="_name">datetime</span>="<span class="_value" title="">2015-01-14T13:35:26+00:00</span>"</span> </span>  <span class="_text" title="">14 January 2015</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">h2</span><div class="_element">
+                    <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span>  <span class="_text" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.">
+                      The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+                    </span> 
+                </div>
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">article</span><span class="_classes"><span class="_class">.feature</span><span class="_class">.feature-small</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.content</span></span><div class="_element">
+                <span class="_name">span</span><span class="_classes"><span class="_class">.feature-image-holder</span></span><div class="_element">
+                  <span class="_name">a</span><span class="_classes"><span class="_class">.img</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span> <div class="_element">
+                    <span class="_name">img</span><span class="_classes"><span class="_class">.feature-image</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">alt</span>="<span class="_value" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span>"</span>  <span class="_attr"><span class="_name">src</span>="<span class="_value" title="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg">https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg</span>"</span> </span> 
+                  </div>
+                </div>
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.feature-text</span></span><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.meta</span></span> <span class="_text" title="— News story">
+                      — News story
+                    </span> <div class="_element">
+                    <span class="_name">time</span> <span class="_attributes"> <span class="_attr"><span class="_name">datetime</span>="<span class="_value" title="">2015-01-14T13:35:26+00:00</span>"</span> </span>  <span class="_text" title="">14 January 2015</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">h2</span><div class="_element">
+                    <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span>  <span class="_text" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.">
+                      The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+                    </span> 
+                </div>
+              </div>
+            </div>
+          </div><div class="_element">
+            <span class="_name">article</span><span class="_classes"><span class="_class">.feature</span><span class="_class">.feature-small</span><span class="_class">.last</span></span><div class="_element">
+              <span class="_name">div</span><span class="_classes"><span class="_class">.content</span></span><div class="_element">
+                <span class="_name">span</span><span class="_classes"><span class="_class">.feature-image-holder</span></span><div class="_element">
+                  <span class="_name">a</span><span class="_classes"><span class="_class">.img</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span> <div class="_element">
+                    <span class="_name">img</span><span class="_classes"><span class="_class">.feature-image</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">alt</span>="<span class="_value" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span>"</span>  <span class="_attr"><span class="_name">src</span>="<span class="_value" title="https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg">https://assets.digital.cabinet-office.gov.uk/government/uploads/system/uploads/feature/image/28818/s300_45158007g.jpg</span>"</span> </span> 
+                  </div>
+                </div>
+              </div><div class="_element">
+                <span class="_name">div</span><span class="_classes"><span class="_class">.feature-text</span></span><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.meta</span></span> <span class="_text" title="— News story">
+                      — News story
+                    </span> <div class="_element">
+                    <span class="_name">time</span> <span class="_attributes"> <span class="_attr"><span class="_name">datetime</span>="<span class="_value" title="">2015-01-14T13:35:26+00:00</span>"</span> </span>  <span class="_text" title="">14 January 2015</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">h2</span><div class="_element">
+                    <span class="_name">a</span> <span class="_attributes"> <span class="_attr"><span class="_name">href</span>="<span class="_value" title="/government/news/military-recognised-in-stonewalls-top-100">/government/news/military-recognised-in-stonewalls-top-100</span>"</span> </span>  <span class="_text" title="Military recognised in Stonewall’s top 100">Military recognised in Stonewall’s top 100</span> 
+                  </div>
+                </div><div class="_element">
+                  <span class="_name">p</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.">
+                      The Royal Navy, British Army and the RAF have all been recognised as top employers for lesbian, gay and bisexual staff, Stonewall announced today.
+                    </span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+  </div>
+</main>
+<script>
+  APP_CONTEXT = {
+    sitemap: [{"path":"../GOV.UK/","url":"/GOV.UK/","children":[{"path":"../GOV.UK/layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"../GOV.UK/typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"../GOV.UK/data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"../GOV.UK/headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"../GOV.UK/forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"../GOV.UK/buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"../GOV.UK/errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"../GOV.UK/phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"./","url":"/MOD.UK/","children":[{"path":"featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+    current_url: "/MOD.UK/featured-news.html"
+  }
+</script><script src="../assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>

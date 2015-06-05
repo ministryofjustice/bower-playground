@@ -1,0 +1,67 @@
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.grid-row {
+  margin-left: -15px;
+  margin-right: -15px; }
+  .grid-row:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+@media (min-width: 641px) {
+  .column-half {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .column-third {
+    box-sizing: border-box;
+    width: 33.33333%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .column-two-thirds {
+    box-sizing: border-box;
+    width: 66.66667%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px; }
+
+  .column-quarter {
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px; } }
+@media (max-width: 640px) {
+  .grid-row {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto; }
+    .grid-row:after {
+      content: " ";
+      display: block;
+      clear: both; }
+
+  [class|="column"] {
+    margin-top: 15px; }
+    [class|="column"]:first-child, [class|="column"]:first-of-type {
+      margin-top: 0; } }
+.grid-row {
+  margin-bottom: 30px; }
+
+[class|='column'] p {
+  min-height: 60px;
+  background-image: url(http://govuk-elements.herokuapp.com/public/images/examples/grid.png);
+  text-indent: -999em;
+  margin: 0; }

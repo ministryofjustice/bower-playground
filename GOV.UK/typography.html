@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html ng-app="glyptotheque">
+  <head>
+    <meta charset="utf-8" />
+    <title> Typography ›  GOV.UK Elements  › Styleguide </title>
+    <meta content="width=device-width" name="viewport" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/styles.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/glyptotheque.css" rel="stylesheet" type="text/css" /><link href="../assets/styles/app.css" rel="stylesheet" type="text/css" /><script src="../assets/scripts/head-js.js" type="text/javascript"></script>
+  </head>
+  <body class="section-gov-uk"><script>
+  // If necessary insert a placeholder before the real menu is created
+  if(!store.get('glypto-menu-hidden')) {
+    var e = document.createElement('div');
+    e.id = 'glypto-nav-placeholder';
+    document.body.insertBefore(e, document.body.childNodes[0]);
+  }
+</script>
+<glypto-menu></glypto-menu>
+<script id="glyptotheque/menu.html" type="text/ng-template">
+  <nav class="glypto-nav" ng-class="{'s-hidden' : navIsHidden}">
+    <button class="glypto-nav-toggle" ng-click="toggle()" title="Toggle menu: Command + Shift + E"></button><a class="_logo" href="../">Styleguide</a>
+    <div class="search">
+      <input class="mousetrap" glypto-search="" ng-model="search" placeholder="Filter (/ to focus)" type="search" />
+    </div>
+    <glypto-menu-tree filter="search" items="items"></glypto-menu-tree>
+  </nav>
+</script>
+<script id="glyptotheque/menu-tree.html" type="text/ng-template">
+  <ul>
+    <glypto-menu-node ng-repeat="node in items|filter:filter"></glypto-menu-node>
+  </ul>
+</script>
+<script id="glyptotheque/menu-node.html" type="text/ng-template">
+  <li ng-class="{'_index': node.children, 's-selected': isSelected}"><a href="{{node.path}}">
+        {{node.title}}<span class="_count" ng-if="node.children.length">{{node.children.length}}</span></a>
+  </li>
+</script><main class="glyptotheque">
+  <header class="glypto-header">
+    <div class="glypto-container">
+      <div class="glypto-breadcrumbs">
+        <a href="../">Styleguide</a> <span class='sep'>›</span> <a href="./">GOV.UK Elements</a>
+      </div>
+      <h1 class="glypto-title">
+        Typography
+      </h1>
+      <div class="glypto-source fa fa-github">
+        <a href="https://github.com/ministryofjustice/bower-playground" target="_blank">Repo</a> • <a href="https://github.com/ministryofjustice/bower-playground/blob/sculptor-updates/middleman/source/GOV.UK/typography.html.slim" target="_blank">Page source</a>
+      </div>
+    </div>
+  </header>
+  <div class="glypto-container"><h3>
+  Headings
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <h1>
+        A 48px Bold heading
+      </h1>
+      <h3>
+        A 36px Bold heading
+      </h3>
+      <h3>
+        A 24px Bold heading
+      </h3>
+      <h4>
+        A 19px Bold heading
+      </h4>
+      <h5>
+        A 19px heading
+      </h5>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;h1&gt;</span>
+  A 48px Bold heading
+<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h3&gt;</span>
+  A 36px Bold heading
+<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h3&gt;</span>
+  A 24px Bold heading
+<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>
+  A 19px Bold heading
+<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>
+  A 19px heading
+<span class="nt">&lt;/h5&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">h1</span> <span class="_text" title="">
+              A 48px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h3</span> <span class="_text" title="">
+              A 36px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h3</span> <span class="_text" title="">
+              A 24px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h4</span> <span class="_text" title="">
+              A 19px Bold heading
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">h5</span> <span class="_text" title="">
+              A 19px heading
+            </span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Lead paragraph
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <p class="lede">
+        A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+      <p>
+        A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lede"</span><span class="nt">&gt;</span>
+  A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">p</span><span class="_classes"><span class="_class">.lede</span></span> <span class="_text" title="A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 24px lead paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">p</span> <span class="_text" title="A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Body copy
+</h3><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <p>
+        A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+      </p>
+      <p>
+        <small>A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.</small>
+      </p>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;p&gt;</span>
+  A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;small&gt;</span>A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.<span class="nt">&lt;/small&gt;</span>
+<span class="nt">&lt;/p&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">p</span> <span class="_text" title="A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">
+              A 19px body copy paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
+            </span> 
+        </div>
+        <div class="_element">
+          <span class="_name">p</span><div class="_element">
+            <span class="_name">small</span> <span class="_text" title="A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.">A 16px supporting text paragraph. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.</span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Lists
+</h3>
+<p>
+  List items start with a lowercase letter and have no full stop at the end.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <ul>
+        <li>
+          here is a bulleted list
+        </li>
+        <li>
+          vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+        </li>
+        <li>
+          vestibulum id ligula porta felis euismod semper
+        </li>
+        <li>
+          integer posuere erat a ante venenatis dapibus posuere velit aliquet
+        </li>
+      </ul>
+      <ol>
+        <li>
+          here is a numbered list
+        </li>
+        <li>
+          vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+        </li>
+        <li>
+          vestibulum id ligula porta felis euismod semper
+        </li>
+        <li>
+          integer posuere erat a ante venenatis dapibus posuere velit aliquet
+        </li>
+      </ol>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    here is a bulleted list
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vestibulum id ligula porta felis euismod semper
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    integer posuere erat a ante venenatis dapibus posuere velit aliquet
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    here is a numbered list
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    vestibulum id ligula porta felis euismod semper
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    integer posuere erat a ante venenatis dapibus posuere velit aliquet
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">ul</span><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="here is a bulleted list">
+                here is a bulleted list
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor">
+                vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vestibulum id ligula porta felis euismod semper">
+                vestibulum id ligula porta felis euismod semper
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="integer posuere erat a ante venenatis dapibus posuere velit aliquet">
+                integer posuere erat a ante venenatis dapibus posuere velit aliquet
+              </span> 
+          </div>
+        </div>
+        <div class="_element">
+          <span class="_name">ol</span><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="here is a numbered list">
+                here is a numbered list
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor">
+                vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="vestibulum id ligula porta felis euismod semper">
+                vestibulum id ligula porta felis euismod semper
+              </span> 
+          </div><div class="_element">
+            <span class="_name">li</span> <span class="_text" title="integer posuere erat a ante venenatis dapibus posuere velit aliquet">
+                integer posuere erat a ante venenatis dapibus posuere velit aliquet
+              </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+<h3>
+  Inset text
+</h3>
+<p>
+  Use bordered inset text to draw attention to important content on the page.
+</p><article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <div class="panel-indent">
+        <p>
+          It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+        </p>
+      </div>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-indent"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">div</span><span class="_classes"><span class="_class">.panel-indent</span></span><div class="_element">
+            <span class="_name">p</span> <span class="_text" title="It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.">
+                It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+              </span> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article><h3 id="hidden-text-progressive-disclosure">Hidden text (progressive disclosure)</h3>
+
+<p>Use this to make your page easier to scan, only showing contextual information when required.</p>
+
+<p>Click on "Help with nationality" to see how this works.</p>
+<article class="glypto-model">
+  <div class="glypto-model-stage">
+    <figure>
+      <details role="group"><summary aria-controls="details-content-0" aria-expanded="false" role="button" tabindex="0"><span class="summary">Help with nationality</span></summary>
+        <div aria-hidden="true" class="panel-indent" id="details-content-0">
+          <p>If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.</p>
+          
+          <p>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.</p>
+          
+        </div>
+      </details>
+    </figure>
+  </div><div class="glypto-model-utils">
+  <menu><button class="_tab-toggle" ng-class="{'__active': show == 'outline'}" ng-click="show = show === 'outline' ? null : 'outline'" tabindex="-1">Outline</button><button class="_tab-toggle" ng-class="{'__active': show == 'source'}" ng-click="show = show === 'source' ? null : 'source'" tabindex="-1">HTML source</button></menu>
+  <div class="_container">
+    <div class="_panel glypto-model-source" ng-class="{'__shown': show == 'source'}"><pre class="codehilite html"><code><span class="nt">&lt;details</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;&lt;summary</span> <span class="na">aria-controls=</span><span class="s">"details-content-0"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">tabindex=</span><span class="s">"0"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"summary"</span><span class="nt">&gt;</span>Help with nationality<span class="nt">&lt;/span&gt;&lt;/summary&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"panel-indent"</span> <span class="na">id=</span><span class="s">"details-content-0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.<span class="nt">&lt;/p&gt;</span>
+    
+    <span class="nt">&lt;p&gt;</span>We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.<span class="nt">&lt;/p&gt;</span>
+    
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/details&gt;</span></code></pre>
+
+    </div>
+    <div class="_panel glypto-model-outline" ng-class="{'__shown': show == 'outline'}">
+      <div class="html-outline">
+        <div class="_element">
+          <span class="_name">details</span> <span class="_attributes"> <span class="_attr"><span class="_name">role</span>="<span class="_value" title="">group</span>"</span> </span> <div class="_element">
+            <span class="_name">summary</span> <span class="_attributes"> <span class="_attr"><span class="_name">aria-controls</span>="<span class="_value" title="">details-content-0</span>"</span>  <span class="_attr"><span class="_name">aria-expanded</span>="<span class="_value" title="">false</span>"</span>  <span class="_attr"><span class="_name">role</span>="<span class="_value" title="">button</span>"</span>  <span class="_attr"><span class="_name">tabindex</span>="<span class="_value" title="">0</span>"</span> </span> <div class="_element">
+              <span class="_name">span</span><span class="_classes"><span class="_class">.summary</span></span> <span class="_text" title="">Help with nationality</span> 
+            </div>
+          </div><div class="_element">
+            <span class="_name">div</span><span class="_id">#details-content-0</span><span class="_classes"><span class="_class">.panel-indent</span></span> <span class="_attributes"> <span class="_attr"><span class="_name">aria-hidden</span>="<span class="_value" title="">true</span>"</span> </span> <div class="_element">
+              <span class="_name">p</span> <span class="_text" title="If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.">If you’re not sure about your nationality, try to find out from an official document like a passport or national ID card.</span> 
+            </div><div class="_element">
+              <span class="_name">p</span> <span class="_text" title="We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.">We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.</span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+  </div>
+</main>
+<script>
+  APP_CONTEXT = {
+    sitemap: [{"path":"./","url":"/GOV.UK/","children":[{"path":"layout.html","url":"/GOV.UK/layout.html","title":"Layout","tags":null},{"path":"typography.html","url":"/GOV.UK/typography.html","title":"Typography","tags":null},{"path":"data.html","url":"/GOV.UK/data.html","title":"Data","tags":null},{"path":"headers.html","url":"/GOV.UK/headers.html","title":"Headers","tags":null},{"path":"forms.html","url":"/GOV.UK/forms.html","title":"Forms","tags":null},{"path":"buttons.html","url":"/GOV.UK/buttons.html","title":"Buttons","tags":null},{"path":"errors-validation.html","url":"/GOV.UK/errors-validation.html","title":"Errors and validation","tags":null},{"path":"phase-banners.html","url":"/GOV.UK/phase-banners.html","title":"Alpha and beta banners","tags":null}],"parent":"/","title":"GOV.UK Elements","tags":null},{"path":"../MOD.UK/","url":"/MOD.UK/","children":[{"path":"../MOD.UK/featured-news.html","url":"/MOD.UK/featured-news.html","title":"Featured News","tags":null}],"parent":"/","title":"MOD.UK","tags":null}],
+    current_url: "/GOV.UK/typography.html"
+  }
+</script><script src="../assets/scripts/app.js" type="text/javascript"></script>
+  </body>
+</html>
