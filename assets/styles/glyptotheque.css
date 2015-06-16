@@ -26,6 +26,11 @@ button {
   color: #343434;
   box-shadow: 0 0 20px black; }
 
+.glypto-container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto; }
+
 .glypto-section {
   margin: 0 -10px 60px;
   padding: 0 10px 60px; }
@@ -149,6 +154,9 @@ button {
     .glypto-section-list-item a:hover:hover,
     .glypto-section-list-item a:visited:hover {
       border-color: #343434; }
+  .glypto-section-list-item.m-folder a {
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
   .glypto-section-list-item .glypto-section-name {
     font-size: 1.875em;
     margin: 0; }
