@@ -1,7 +1,4 @@
 @charset "UTF-8";
-.global-header, .global-header + .global-subheader, .global-footer {
-  padding: 10px 15px; }
-
 body {
   font-size: 19px;
   font-family: nta, Arial, sans-serif;
@@ -70,14 +67,18 @@ ul,
 ol {
   padding-left: 1em; }
 
-.u-vh {
-  position: absolute;
+.u-vh, .u-hidden,
+[data-control-value]:not(.u-expanded) {
+  clip: rect(0 0 0 0);
   overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px); }
+  position: absolute;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  width: 1px;
+  height: 1px; }
 
-.u-hide-text, .global-footer .ogl-logo {
+.u-hide-text {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden; }
@@ -86,24 +87,20 @@ ol {
   -webkit-transition: opacity 300ms ease-out;
           transition: opacity 300ms ease-out; }
 
-.u-hidden,
-[data-control-value]:not(.u-expanded) {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  width: 0;
-  height: 0;
-  padding: 0;
-  margin: 0; }
-
 .u-expanded.u-expanded {
+  clip: auto;
+  overflow: visible;
+  visibility: visible;
+  position: static;
   opacity: 1;
-  visibility: visible; }
+  width: auto;
+  height: auto; }
 
 .global-header {
   background: #0b0c0c;
   color: #fff;
-  line-height: 30px; }
+  line-height: 30px;
+  padding: 10px 15px; }
   .global-header .skip-link a, .global-header .skip-link details summary, details .global-header .skip-link summary {
     display: inline-block;
     margin-bottom: 5px;
@@ -164,6 +161,9 @@ ol {
   .global-header .header-menu-toggle {
     display: none; }
 
+.global-header + .global-subheader {
+  padding: 10px 15px; }
+
 .subheader-item {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
@@ -178,8 +178,7 @@ ol {
   color: #555;
   border-top: 10px solid #005ea5;
   background: #dee0e2;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding: 10px 50px; }
   .global-footer a, .global-footer details summary, details .global-footer summary {
     color: inherit; }
     .global-footer a:hover, .global-footer details summary:hover, details .global-footer summary:hover {
@@ -199,6 +198,14 @@ ol {
   .global-footer .open-government-licence {
     padding-left: 50px; }
   .global-footer .ogl-logo {
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    width: 1px;
+    height: 1px;
     height: 17px;
     width: 41px;
     float: left;
