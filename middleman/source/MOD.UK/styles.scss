@@ -2,16 +2,7 @@ $susy: (
   gutters: 40px/80px,
 );
 
-@import 'bourbon';
-@import 'susy';
-@import 'breakpoint';
-
-@import 'govuk/$variables';
-@import 'govuk/$colours';
-@import 'govuk/@mixins';
-
-@import 'govuk/%common';
-
+@import 'govuk/fonts';
 @import 'govuk/typography';
 @import 'govuk/utilities';
 

@@ -1,15 +1,8 @@
-@import 'bourbon';
-@import 'susy';
-@import 'breakpoint';
-
-@import 'govuk/$variables';
-@import 'govuk/$colours';
-
-@import 'govuk/@functions';
-@import 'govuk/@mixins';
+@import 'govuk/-essentials';
 
 @import 'govuk/fonts';
 @import 'govuk/typography';
+
 @import 'govuk/elements/forms';
 
 .section-gov-uk {
