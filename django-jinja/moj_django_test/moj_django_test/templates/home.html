@@ -1,4 +1,4 @@
-{% extends 'layouts/jinja/base.html' %}
+{% extends 'layouts/jinja/external.html' %}
 
 {% block include_js %}
   <script src="{{ static('javascripts/application.js') }}"></script>
@@ -6,7 +6,7 @@
 
 {% import 'macros/headers.html' as Headers %}
 
-{% block page_title %}Django{% endblock %}
+{% block page_title %}Django Jinja{% endblock %}
 {% block stylesheets %}
 	<link href="{{ static('css/main.css') }}" rel="stylesheet">
 {% endblock %}

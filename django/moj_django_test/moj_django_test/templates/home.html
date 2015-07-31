@@ -1,5 +1,7 @@
-{% extends 'layouts/django/base.html' %}
+{% extends 'layouts/django/external.html' %}
 {% load staticfiles %}
+
+{% block global_subheader_container %}{% endblock %}
 
 {% block include_js %}
   <script src="{% static 'javascripts/application.js' %}"></script>
