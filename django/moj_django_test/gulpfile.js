@@ -46,12 +46,12 @@ gulp.task('js', ['clean-js'], function() {
     .pipe(gulp.dest(paths.dest + 'javascripts'));
 });
 
-gulp.task('clean-css', function() {
-  del(paths.dest + 'css');
+gulp.task('clean-css', function(cb) {
+  del(paths.dest + 'css', cb);
 });
 
-gulp.task('clean-js', function() {
-  del(paths.dest + 'javascripts');
+gulp.task('clean-js', function(cb) {
+  del(paths.dest + 'javascripts', cb);
 });
 
 gulp.task('build', [
