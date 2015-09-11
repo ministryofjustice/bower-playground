@@ -32,7 +32,8 @@
 
   ```js
   var gulp = require('gulp');
-  var sass = require('gulp-ruby-sass');
+  var sass = require('gulp-sass');
+  var sourcemaps = require('gulp-sourcemaps');
   var readJson = require('read-json-sync');
   var concat = require('gulp-concat');
   var util = require('util');
@@ -47,7 +48,7 @@
   var paths = {
     src: 'moj_django_test/assets-src/',
     dest: 'moj_django_test/assets/',
-    styles: 'moj_django_test/assets-src/stylesheets/',
+    styles: 'moj_django_test/assets-src/stylesheets/**/*.scss',
     js: 'moj_django_test/assets-src/javascripts/**/*.js',
     mojular_js: [
       util.format('%s/mojular/assets/scripts/moj.js', bowerDir),
@@ -62,13 +63,14 @@
     importPaths = importPaths.concat(readJson(util.format('%s/govuk-template/paths.json', bowerDir)).import_paths);
     importPaths = importPaths.concat(readJson(util.format('%s/mojular/paths.json', bowerDir)).import_paths);
 
-    return sass(paths.styles, {
-        lineNumbers: true,
-        loadPath: importPaths.map(function(path) {
+    gulp.src(paths.styles)
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: importPaths.map(function(path) {
           return util.format('%s/%s', bowerDir, path);
         })
-      })
-      .on('error', function (err) { console.log(err.message); })
+      }).on('error', sass.logError))
+      .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(paths.dest + 'css/'));
   });
 
