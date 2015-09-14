@@ -70,3 +70,6 @@ node_modules/
 # bower packages
 moj_django_test/assets-src/vendor/
 .sass-cache/
+
+# compiled assets
+moj_django_test/assets/

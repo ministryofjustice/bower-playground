@@ -23,11 +23,12 @@
     ```
 
 5. Add the following to `app/controllers/application_controller.rb`
+    There are two variants of template: `erb/external` (intendend for public-facing projects) and `erb/internal`
+    (for internal projects).
+
     ```ruby
-    layout 'slim/base'
+    layout 'erb/external'
 
     bowerrc_dir = JSON.parse(IO.read("#{Rails.root.to_s}/.bowerrc"))['directory']
     prepend_view_path(File.expand_path("#{Rails.root.to_s}/#{bowerrc_dir}/mojular/templates"))
     ```
-
-    Layouts are available in the following template engines: ERB, Haml, Slim.

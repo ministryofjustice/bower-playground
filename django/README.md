@@ -31,63 +31,55 @@
 7. Assets are managed with Gulp (or Grunt). An example of Gulp configuration:
 
 	```js
-    var paths = {
-      src: 'moj_django_test/assets-src/',
-      dest: 'moj_django_test/assets/',
-      styles: 'moj_django_test/assets-src/stylesheets/',
-      js: 'moj_django_test/assets-src/javascripts/**/*.js'
-    };
+  var gulp = require('gulp');
+  var sass = require('gulp-sass');
+  var sourcemaps = require('gulp-sourcemaps');
+  var readJson = require('read-json-sync');
+  var concat = require('gulp-concat');
+  var util = require('util');
+  var merge = require('merge-stream');
 
-    var gulp = require('gulp');
-    var sass = require('gulp-ruby-sass');
-    var del = require('del');
-    var nconf = require('nconf');
-    var concat = require('gulp-concat');
+  var bowerDir = 'bower_components';
 
-    gulp.task('sass', ['clean-css'], function() {
-      nconf.use('file', { file: './.bowerrc' });
-      nconf.load();
-      var bowerDir = nconf.get('directory');
+  try {
+    bowerDir = readJson('.bowerrc').directory;
+  } catch(e) {}
 
-      nconf.use('file', { file: './' + bowerDir + '/govuk-template/paths.json' });
-      nconf.load();
+  var paths = {
+    src: 'moj_django_test/assets-src/',
+    dest: 'moj_django_test/assets/',
+    styles: 'moj_django_test/assets-src/stylesheets/**/*.scss',
+    js: 'moj_django_test/assets-src/javascripts/**/*.js',
+    mojular_js: [
+      util.format('%s/mojular/assets/scripts/moj.js', bowerDir),
+      util.format('%s/mojular/assets/scripts/modules/**/*.js', bowerDir),
+      util.format('%s/mojular/assets/scripts/moj-init.js', bowerDir)
+    ]
+  };
 
-      var govUkImportPaths = nconf.get('import_paths');
+  gulp.task('sass', function() {
+    var importPaths = [];
 
-      nconf.use('file', { file: './' + bowerDir + '/mojular/paths.json' });
-      nconf.load();
+    importPaths = importPaths.concat(readJson(util.format('%s/govuk-template/paths.json', bowerDir)).import_paths);
+    importPaths = importPaths.concat(readJson(util.format('%s/mojular/paths.json', bowerDir)).import_paths);
 
-      var mojImportPaths = nconf.get('import_paths');
-
-      return sass(paths.styles, {
-          lineNumbers: true,
-          loadPath: govUkImportPaths.concat(mojImportPaths).map(function(i) {
-            return bowerDir + '/' + i;
-          })
+    gulp.src(paths.styles)
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: importPaths.map(function(path) {
+          return util.format('%s/%s', bowerDir, path);
         })
-        .on('error', function (err) { console.log(err.message); })
-        .pipe(gulp.dest(paths.dest + 'css/'));
-    });
+      }).on('error', sass.logError))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest(paths.dest + 'css/'));
+  });
 
-    gulp.task('js', ['clean-js'], function() {
-      return gulp.src(paths.js)
-        .pipe(concat('application.js'))
-        .pipe(gulp.dest(paths.dest + 'javascripts'));
-    });
+  gulp.task('js', function() {
+    var local_js = gulp.src(paths.mojular_js).pipe(concat('moj.js')).pipe(gulp.dest(paths.dest + 'scripts/'));
+    var mojular_js = gulp.src(paths.js).pipe(concat('application.js')).pipe(gulp.dest(paths.dest + 'scripts/'));
 
-    gulp.task('clean-css', function() {
-      del(paths.dest + 'css');
-    });
+    return merge(local_js, mojular_js);
+  });
 
-    gulp.task('clean-js', function() {
-      del(paths.dest + 'javascripts');
-    });
-
-    gulp.task('build', [
-        'js',
-        'sass'
-      ]
-    );
-
-    gulp.task('default', ['build']);
+  gulp.task('default', ['js', 'sass']);
 	```

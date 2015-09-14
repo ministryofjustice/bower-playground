@@ -1,1 +1,1 @@
-console.log('Hello from Django');
+console.log('Hello from Django with Jinja');

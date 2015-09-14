@@ -1,7 +1,7 @@
 {% extends 'layouts/jinja/external.html' %}
 
 {% block include_js %}
-  <script src="{{ static('javascripts/application.js') }}"></script>
+  <script src="{{ static('scripts/application.js') }}"></script>
 {% endblock %}
 
 {% import 'macros/headers.html' as Headers %}
@@ -13,6 +13,7 @@
 
 {% block content %}
 	<h1>Test from Django</h1>
+  <p><a href="#">Hello</a> World.</p>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt atque, nulla corrupti vero soluta itaque nemo laborum quia cupiditate libero nisi illum provident, dolorem maxime praesentium impedit doloremque non numquam!</p>
 
 	<img src="{{ static('images/opengraph-image.png') }}" alt="">
