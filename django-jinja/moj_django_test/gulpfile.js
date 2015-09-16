@@ -5,42 +5,23 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-var readJson = require('read-json-sync');
 var concat = require('gulp-concat');
-var util = require('util');
 var merge = require('merge-stream');
-
-var bowerDir = 'bower_components';
-
-try {
-  bowerDir = readJson('.bowerrc').directory;
-} catch(e) {}
+// Get Sass import paths from Mojular
+var importPaths = require('mojular').getImportPaths();
 
 var paths = {
   src: 'moj_django_test/assets-src/',
   dest: 'moj_django_test/assets/',
   styles: 'moj_django_test/assets-src/stylesheets/**/*.scss',
   js: 'moj_django_test/assets-src/javascripts/**/*.js',
-  mojular_js: [
-    util.format('%s/mojular/assets/scripts/moj.js', bowerDir),
-    util.format('%s/mojular/assets/scripts/modules/**/*.js', bowerDir),
-    util.format('%s/mojular/assets/scripts/moj-init.js', bowerDir)
-  ]
+  mojular_js: require('mojular').getScriptPaths() // Get Mojular scripts paths
 };
 
 gulp.task('sass', function() {
-  var importPaths = [];
-
-  importPaths = importPaths.concat(readJson(util.format('%s/govuk-template/paths.json', bowerDir)).import_paths);
-  importPaths = importPaths.concat(readJson(util.format('%s/mojular/paths.json', bowerDir)).import_paths);
-
   gulp.src(paths.styles)
     .pipe(sourcemaps.init())
-    .pipe(sass({
-      includePaths: importPaths.map(function(path) {
-        return util.format('%s/%s', bowerDir, path);
-      })
-    }).on('error', sass.logError))
+    .pipe(sass({ includePaths: importPaths }).on('error', sass.logError))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(paths.dest + 'css/'));
 });

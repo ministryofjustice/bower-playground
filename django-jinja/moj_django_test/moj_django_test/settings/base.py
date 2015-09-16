@@ -77,14 +77,13 @@ STATIC_ROOT = root('static')
 STATIC_URL = '/static/'
 
 project_root = abspath(root('..'))
-bower_dir = json.load(open(join(project_root, '.bowerrc')))['directory']
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     root('assets'),
-    abspath(root(project_root, bower_dir)),
-    abspath(root(project_root, bower_dir, 'govuk-template', 'assets')),
-    abspath(root(project_root, bower_dir, 'mojular', 'assets')),
+    abspath(root(project_root, 'node_modules')),
+    abspath(root(project_root, 'node_modules', 'mojular', 'assets')),
+    abspath(root(project_root, 'node_modules', 'mojular', 'bower_components', 'govuk-template', 'assets')),
 )
 
 # List of finder classes that know how to find static files in
@@ -119,7 +118,7 @@ WSGI_APPLICATION = 'moj_django_test.wsgi.application'
 
 TEMPLATE_DIRS = (
     root('templates'),
-    abspath(root(project_root, bower_dir, 'mojular', 'templates')),
+    abspath(root(project_root, 'node_modules', 'mojular', 'templates'))
 )
 
 INSTALLED_APPS = (

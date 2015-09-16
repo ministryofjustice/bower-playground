@@ -7,6 +7,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-sourcemaps": "^1.5.2",
     "merge-stream": "^1.0.0",
-    "read-json-sync": "^1.1.0"
+    "read-json-sync": "^1.1.0",
+    "mojular": "ministryofjustice/mojular#npm"
   }
 }
