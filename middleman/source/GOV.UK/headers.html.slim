@@ -8,9 +8,9 @@ isolation_styles: >
 
 h3 Global header
 = model
-  = partial 'partials/global_header', locals: { name: 'A Government Serice' }
+  / = partial 'partials/global_header', locals: { name: 'A Government Serice' }
 
 h3 Global header with phase banner
 = model 'header-subheader'
-  = partial 'partials/global_header', locals: { name: 'A Government Serice' }
-  = partial 'partials/global_subheader', locals: { phase: 'alpha' }
+  / = partial 'partials/global_header', locals: { name: 'A Government Serice' }
+  / = partial 'partials/global_subheader', locals: { phase: 'alpha' }

@@ -7,7 +7,6 @@
     "lodash": "*",
     "mousetrap": "~1.4.6",
     "store": "~2.1.6",
-    "iframe-resizer": "~2.8.6",
-    "mojular": "ministryofjustice/mojular"
+    "iframe-resizer": "~2.8.6"
   }
 }
